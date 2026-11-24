@@ -1,0 +1,8 @@
+source_dataset,analysis_type,contaminant_family,n_sample_TAG
+benthos_contam,Benthic chemistry,HBCDD,29
+benthos_contam,Benthic chemistry,PCB,44
+benthos_contam,Benthic chemistry,PFAS,45
+soles_contam,Sole chemistry,HBCDD,10
+soles_contam,Sole chemistry,PCB,10
+soles_contam,Sole chemistry,PFAS,10
+soles_stomach,Stomach contents,NA,124

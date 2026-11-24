@@ -1,0 +1,4 @@
+family,compound_name,removed_species,removed_phylum,bmf_reference,bmf_without_species,delta_pct,threshold_change
+HBCDD,a.HBCDD,Crangon_crangon,Arthropoda,0.12233905355073,0.08381113347032028,-31.492740022247645,FALSE
+HBCDD,b.HBCDD,Crangon_crangon,Arthropoda,0.010796046922568523,0.007402818832662569,-31.430282901166386,FALSE
+HBCDD,g.HBCDD,Crangon_crangon,Arthropoda,0.003475044199412787,0.0023741408386336927,-31.680269303196916,FALSE

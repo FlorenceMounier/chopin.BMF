@@ -1,0 +1,27 @@
+observed_species,Class,Phylum,n_species,mass_median,mass_minq25,mass_maxq75,source,mass_iqr,mass_iqr_rel,mass_match_quality,shared_rank,priority,n_candidates,taxonomic_matching_quality,factor_siphon
+Lanice conchilega,Polychaeta,Annelida,1,5.759999999999947,3.3599999999998076,12.00662983425415,Gogina et al. (2022),8.646629834254343,NA,Single reference,Species,16,1,Perfect,0.0375
+Nephtys sp,Polychaeta,Annelida,2,3.7252777777781647,2.2954166666666906,12.380416666666667,Gogina et al. (2022),10.084999999999976,2.707180672581921,Limited evidence,Genus,15,2,High,0.0375
+Ampharetidae,Polychaeta,Annelida,2,3.143250263250237,0.1369927615661404,15.28021528021528,{Btrait} package v 1.0.1; Gogina et al. (2022),15.14322251864914,4.817695458646201,Limited evidence,Suborder,9,2,Low,0.0375
+Melinna palmata,Polychaeta,Annelida,2,3.143250263250237,0.1369927615661404,15.28021528021528,{Btrait} package v 1.0.1; Gogina et al. (2022),15.14322251864914,4.817695458646201,Limited evidence,Suborder,9,2,Low,0.0375
+Hediste diversicolor,Polychaeta,Annelida,1,1.8079268292682893,0.8209239130433607,4.377500000000013,Gogina et al. (2022),3.5565760869566523,NA,Single reference,Species,16,1,Perfect,0.0375
+Nereididae,Polychaeta,Annelida,3,1.8079268292682893,0.3110499999999794,33.82724623253634,Gogina et al. (2022); {Btrait} package v 1.0.1,33.51619623253636,18.538469416984732,Very low,Family,13,3,Moderate,0.0375
+Owenia fusiformis,Polychaeta,Annelida,1,0.5977500000001079,0.25232142857142414,1.5765624999995453,Gogina et al. (2022),1.3242410714281212,NA,Single reference,Species,16,1,Perfect,0.0375
+Annelida,NA,Annelida,21,0.5265005265005266,0.0394489157165315,33.82724623253634,Gogina et al. (2022); {Btrait} package v 1.0.1,33.787797316819805,64.17428970374641,Very low,Phylum,2,21,Low,0.0375
+Lagis koreni,Polychaeta,Annelida,1,0.5265005265005266,0.1369927615661404,15.28021528021528,{Btrait} package v 1.0.1,15.14322251864914,NA,Single reference,Species,16,1,Perfect,0.0375
+Phyllodocidae,Polychaeta,Annelida,3,0.45999999999990493,0.20874999999997979,18.57000000000042,{Btrait} package v 1.0.1; Gogina et al. (2022),18.36125000000044,39.91576086957442,Very low,Family,13,3,Moderate,0.0375
+Crangon crangon,Malacostraca,Arthropoda,1,0.43733333333333235,0.3800000000000005,79.76307692307692,{Btrait} package v 1.0.1,79.38307692307693,NA,Single reference,Species,16,1,Perfect,0.0375
+Crangonidae,Malacostraca,Arthropoda,1,0.43733333333333235,0.3800000000000005,79.76307692307692,{Btrait} package v 1.0.1,79.38307692307693,NA,Single reference,Family,13,1,Moderate,0.0375
+Corophium volutator,Malacostraca,Arthropoda,1,0.34899999999959963,0.21250000000005986,0.4818749999998956,Gogina et al. (2022),0.2693749999998357,NA,Single reference,Species,16,1,Perfect,0.0375
+Harpacticoida,Copepoda,Arthropoda,28,0.2999213466714811,0.007777777777759651,131.7716666666661,Gogina et al. (2022); {Btrait} package v 1.0.1,131.76388888888835,439.32814503269066,Very low,Superclass,4,28,Low,0.0375
+Ostracoda,Ostracoda,Arthropoda,28,0.2999213466714811,0.007777777777759651,131.7716666666661,Gogina et al. (2022); {Btrait} package v 1.0.1,131.76388888888835,439.32814503269066,Very low,Subphylum,3,28,Low,0.0375
+Arthropoda,NA,Arthropoda,29,0.2995001495001497,0.007777777777759651,131.7716666666661,Gogina et al. (2022); {Btrait} package v 1.0.1,131.76388888888835,439.9459870347159,Very low,Phylum,2,29,Low,0.0375
+Diastylis bradyi,Malacostraca,Arthropoda,1,0.2964002964002964,0.2964002964002964,0.40410958904109584,{Btrait} package v 1.0.1,0.10770929264079943,NA,Single reference,Species,16,1,Perfect,0.0375
+Diastylis sp,Malacostraca,Arthropoda,1,0.2964002964002964,0.2964002964002964,0.40410958904109584,{Btrait} package v 1.0.1,0.10770929264079943,NA,Single reference,Genus,15,1,High,0.0375
+Cyathura carinata,Malacostraca,Arthropoda,1,0.2705833333332741,0.044414682539629435,1.0921153846153229,Gogina et al. (2022),1.0477007020756934,NA,Single reference,Species,16,1,Perfect,0.0375
+Hydrozoa,Hydrozoa,Cnidaria,1,0.2564185051229432,0.19863013698630136,0.43743933946659747,{Btrait} package v 1.0.1,0.2388092024802961,NA,Single reference,Class,5,1,Low,0.0375
+Amphipoda,Malacostraca,Arthropoda,14,0.180000000000069,0.007777777777759651,1.391249999999733,Gogina et al. (2022); {Btrait} package v 1.0.1,1.3834722222219733,7.6859567901191275,Very low,Order,8,14,Low,0.0375
+Boccardiella ligerica,Polychaeta,Annelida,3,0.08000000000000027,0.0394489157165315,1.848769896571351,Gogina et al. (2022); {Btrait} package v 1.0.1,1.8093209808548196,22.61651226068517,Very low,Family,13,3,Moderate,0.0375
+Spionidae,Polychaeta,Annelida,3,0.08000000000000027,0.0394489157165315,1.848769896571351,Gogina et al. (2022); {Btrait} package v 1.0.1,1.8093209808548196,22.61651226068517,Very low,Family,13,3,Moderate,0.0375
+Polydora ciliata,Polychaeta,Annelida,1,0.056000000000011596,0.0394489157165315,0.09832661290323008,Gogina et al. (2022),0.05887769718669858,NA,Single reference,Species,16,1,Perfect,0.0375
+Bivalvia,Bivalvia,Mollusca,12,0.04184374999999241,0.003095689655170772,7.083772083772085,{Btrait} package v 1.0.1; Gogina et al. (2022),188.81803717645104,169.2170609498001,Very low,Class,5,12,Low,0.0375
+Kurtiella bidentata,Bivalvia,Mollusca,1,0.004285714285713814,0.003095689655170772,0.006244791666667333,Gogina et al. (2022),0.08397605363990829,NA,Single reference,Species,16,1,Perfect,0.0375

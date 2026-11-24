@@ -1,0 +1,11 @@
+sample_TAG,date,season,class
+1017 FN G0 pool 1,2017-10-05T00:00:00Z,autumn,G0
+1017 FN G0 pool 2,2017-10-05T00:00:00Z,autumn,G0
+1017 FN G0 pool 3,2017-10-05T00:00:00Z,autumn,G0
+1017 FS G0 pool 1,2017-10-13T00:00:00Z,autumn,G0
+1017 FS G0 pool 2,2017-10-13T00:00:00Z,autumn,G0
+1017 FS G0 pool 3,2017-10-13T00:00:00Z,autumn,G0
+1017 FS G0 pool 4,2017-10-13T00:00:00Z,autumn,G0
+EM G0 oct 2017 pool1,2017-09-08T00:00:00Z,autumn,G0
+EM G0 oct 2017 pool2,2017-09-08T00:00:00Z,autumn,G0
+EM G0 oct 2017 pool3,2017-10-05T00:00:00Z,autumn,G0

@@ -1,0 +1,4 @@
+family,n_compounds,n_removal_tests,n_compounds_with_flip,n_threshold_changes,n_phylum_drops,max_abs_delta_pct
+HBCDD,3,33,0,0,3,45.88301822113849
+PCB,19,285,14,17,0,175.82010191022283
+PFAS,10,130,4,8,0,133.89485660924532

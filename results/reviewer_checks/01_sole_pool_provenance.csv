@@ -1,0 +1,11 @@
+sample_id,source_season,source_date,source_age,matches_current_script,missing_source_metadata
+1017 FN G0 pool 1,autumn,2017-10-05,G0,TRUE,FALSE
+1017 FN G0 pool 2,autumn,2017-10-05,G0,TRUE,FALSE
+1017 FN G0 pool 3,autumn,2017-10-05,G0,TRUE,FALSE
+1017 FS G0 pool 1,autumn,2017-10-13,G0,TRUE,FALSE
+1017 FS G0 pool 2,autumn,2017-10-13,G0,TRUE,FALSE
+1017 FS G0 pool 3,autumn,2017-10-13,G0,TRUE,FALSE
+1017 FS G0 pool 4,autumn,2017-10-13,G0,TRUE,FALSE
+EM G0 oct 2017 pool1,autumn,2017-09-08,G0,TRUE,FALSE
+EM G0 oct 2017 pool2,autumn,2017-09-08,G0,TRUE,FALSE
+EM G0 oct 2017 pool3,autumn,2017-10-05,G0,TRUE,FALSE

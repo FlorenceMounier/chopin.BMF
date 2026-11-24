@@ -1,0 +1,4 @@
+family,n_compounds,median_fold_range,maximum_fold_range,n_crossing_unity,n_touching_unity
+HBCDD,3,4.80930513396006,5.5487780842056775,0,0
+PCB,19,1.194557332951501,1.684697414803004,1,1
+PFAS,10,1.5459756623641945,2.1045392992878247,2,2

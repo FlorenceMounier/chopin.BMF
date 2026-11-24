@@ -1,0 +1,4 @@
+family,n_compounds,n_log2_eligible,n_log2_not_estimable,n_bounded_eligible,n_bounded_not_estimable,n_zero_related_exclusions,median_D_diet,median_D_censor
+HBCDD,3,2,1,3,0,1,0.7717397541720282,0.8135627937576552
+PCB,19,19,0,19,0,0,0.03591591373196953,0
+PFAS,10,10,0,10,0,0,0.07585752029164439,0.018063875098391573

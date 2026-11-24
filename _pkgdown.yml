@@ -1,0 +1,21 @@
+url: https://FlorenceMounier.github.io/chopin.BMF/
+
+template:
+  bootstrap: 5
+
+home:
+  title: "chopin.BMF"
+
+navbar:
+  structure:
+    left:
+      - home
+      - reference
+      - articles
+    right:
+      - github
+
+articles:
+  - title: "Articles"
+    contents:
+      - articles/Article

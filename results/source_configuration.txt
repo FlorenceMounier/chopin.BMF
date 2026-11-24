@@ -1,0 +1,4 @@
+SOLE_SEASON=autumn
+chopin.data_version=0.0.1
+R_version=4.6.1
+SAVE_TO_PACKAGE=TRUE

@@ -1,0 +1,115 @@
+sample_id,compartment,group,compound_name,censored,loq,concentration,species,taxa
+1017 FN G0 pool 1,Sole,Solea solea,a.HBCDD,FALSE,0,0.5528388404634722,Solea_solea,Sole
+1017 FN G0 pool 1,Sole,Solea solea,b.HBCDD,TRUE,0.05699756892686741,0.05699756892686741,Solea_solea,Sole
+1017 FN G0 pool 1,Sole,Solea solea,g.HBCDD,TRUE,0.16537426247482254,0.16537426247482254,Solea_solea,Sole
+1017 FN G0 pool 2,Sole,Solea solea,a.HBCDD,FALSE,0,1.587545099738221,Solea_solea,Sole
+1017 FN G0 pool 2,Sole,Solea solea,b.HBCDD,TRUE,0.03548260461340576,0.03548260461340576,Solea_solea,Sole
+1017 FN G0 pool 2,Sole,Solea solea,g.HBCDD,TRUE,0.10295017277239886,0.10295017277239886,Solea_solea,Sole
+1017 FN G0 pool 3,Sole,Solea solea,a.HBCDD,FALSE,0,1.704927173428165,Solea_solea,Sole
+1017 FN G0 pool 3,Sole,Solea solea,b.HBCDD,TRUE,0.029225564850127034,0.029225564850127034,Solea_solea,Sole
+1017 FN G0 pool 3,Sole,Solea solea,g.HBCDD,TRUE,0.08479583118187366,0.08479583118187366,Solea_solea,Sole
+1017 FS G0 pool 1,Sole,Solea solea,a.HBCDD,FALSE,0,0.25986828901555376,Solea_solea,Sole
+1017 FS G0 pool 1,Sole,Solea solea,b.HBCDD,TRUE,0.05827799730992877,0.05827799730992877,Solea_solea,Sole
+1017 FS G0 pool 1,Sole,Solea solea,g.HBCDD,TRUE,0.16908933144157612,0.16908933144157612,Solea_solea,Sole
+1017 FS G0 pool 2,Sole,Solea solea,a.HBCDD,FALSE,0,0.19648092790589133,Solea_solea,Sole
+1017 FS G0 pool 2,Sole,Solea solea,b.HBCDD,TRUE,0.039192274912175556,0.039192274912175556,Solea_solea,Sole
+1017 FS G0 pool 2,Sole,Solea solea,g.HBCDD,TRUE,0.11371350884504718,0.11371350884504718,Solea_solea,Sole
+1017 FS G0 pool 3,Sole,Solea solea,a.HBCDD,FALSE,0,0.669823371256816,Solea_solea,Sole
+1017 FS G0 pool 3,Sole,Solea solea,b.HBCDD,TRUE,0.03628736471803971,0.03628736471803971,Solea_solea,Sole
+1017 FS G0 pool 3,Sole,Solea solea,g.HBCDD,FALSE,0,0.1352977786886594,Solea_solea,Sole
+1017 FS G0 pool 4,Sole,Solea solea,a.HBCDD,FALSE,0,0.7811833159833698,Solea_solea,Sole
+1017 FS G0 pool 4,Sole,Solea solea,b.HBCDD,TRUE,0.036017277582390574,0.036017277582390574,Solea_solea,Sole
+1017 FS G0 pool 4,Sole,Solea solea,g.HBCDD,TRUE,0.1045014871455529,0.1045014871455529,Solea_solea,Sole
+EM G0 oct 2017 pool1,Sole,Solea solea,a.HBCDD,FALSE,0,0.5799073354833475,Solea_solea,Sole
+EM G0 oct 2017 pool1,Sole,Solea solea,b.HBCDD,TRUE,0.0545271866979299,0.0545271866979299,Solea_solea,Sole
+EM G0 oct 2017 pool1,Sole,Solea solea,g.HBCDD,TRUE,0.15820662976989722,0.15820662976989722,Solea_solea,Sole
+EM G0 oct 2017 pool2,Sole,Solea solea,a.HBCDD,FALSE,0,0.5324742039194515,Solea_solea,Sole
+EM G0 oct 2017 pool2,Sole,Solea solea,b.HBCDD,TRUE,0.05677926169716977,0.05677926169716977,Solea_solea,Sole
+EM G0 oct 2017 pool2,Sole,Solea solea,g.HBCDD,TRUE,0.16474086007216057,0.16474086007216057,Solea_solea,Sole
+EM G0 oct 2017 pool3,Sole,Solea solea,a.HBCDD,FALSE,0,1.074685589238311,Solea_solea,Sole
+EM G0 oct 2017 pool3,Sole,Solea solea,b.HBCDD,TRUE,0.04224166637606695,0.04224166637606695,Solea_solea,Sole
+EM G0 oct 2017 pool3,Sole,Solea solea,g.HBCDD,TRUE,0.12256109434444115,0.12256109434444115,Solea_solea,Sole
+CP03,Prey,Scrobicularia_plana,a.HBCDD,FALSE,0,40.19408369567536,Scrobicularia_plana,Bivalves
+CP03,Prey,Scrobicularia_plana,b.HBCDD,FALSE,0,14.987199408729005,Scrobicularia_plana,Bivalves
+CP03,Prey,Scrobicularia_plana,g.HBCDD,FALSE,0,183.3015873015873,Scrobicularia_plana,Bivalves
+CP04,Prey,Hediste_diversicolor,a.HBCDD,FALSE,0,6.396957123098202,Hediste_diversicolor,Polychaetes
+CP04,Prey,Hediste_diversicolor,b.HBCDD,FALSE,0,2.244121715076072,Hediste_diversicolor,Polychaetes
+CP04,Prey,Hediste_diversicolor,g.HBCDD,FALSE,0,16.04426002766252,Hediste_diversicolor,Polychaetes
+CP06,Prey,Nephtys_sp,a.HBCDD,TRUE,1.0731707317073171,1.0731707317073171,Nephtys_sp,Polychaetes
+CP06,Prey,Nephtys_sp,b.HBCDD,TRUE,1.609756097560976,1.609756097560976,Nephtys_sp,Polychaetes
+CP06,Prey,Nephtys_sp,g.HBCDD,TRUE,1.9512195121951221,1.9512195121951221,Nephtys_sp,Polychaetes
+CP09,Prey,Cerastoderma_edule,a.HBCDD,FALSE,0,18.13370689825495,Cerastoderma_edule,Bivalves
+CP09,Prey,Cerastoderma_edule,b.HBCDD,FALSE,0,2.760969352161267,Cerastoderma_edule,Bivalves
+CP09,Prey,Cerastoderma_edule,g.HBCDD,FALSE,0,21.414634146341466,Cerastoderma_edule,Bivalves
+CP11,Prey,Lagis_koreni,a.HBCDD,FALSE,0,4.903225806451613,Lagis_koreni,Polychaetes
+CP11,Prey,Lagis_koreni,b.HBCDD,FALSE,0,1.6129032258064517,Lagis_koreni,Polychaetes
+CP11,Prey,Lagis_koreni,g.HBCDD,FALSE,0,15.870967741935484,Lagis_koreni,Polychaetes
+CP12,Prey,Owenia_fusiformis,a.HBCDD,FALSE,0,2.737704918032787,Owenia_fusiformis,Polychaetes
+CP12,Prey,Owenia_fusiformis,b.HBCDD,TRUE,0.26229508196721313,0.26229508196721313,Owenia_fusiformis,Polychaetes
+CP12,Prey,Owenia_fusiformis,g.HBCDD,FALSE,0,3.5901639344262297,Owenia_fusiformis,Polychaetes
+CP13,Prey,Lagis_koreni,a.HBCDD,FALSE,0,5.006954102920723,Lagis_koreni,Polychaetes
+CP13,Prey,Lagis_koreni,b.HBCDD,FALSE,0,1.1126564673157164,Lagis_koreni,Polychaetes
+CP13,Prey,Lagis_koreni,g.HBCDD,FALSE,0,12.169680111265647,Lagis_koreni,Polychaetes
+CP14,Prey,Nephtys_sp,a.HBCDD,TRUE,1.129032258064516,1.129032258064516,Nephtys_sp,Polychaetes
+CP14,Prey,Nephtys_sp,b.HBCDD,TRUE,1.7204301075268815,1.7204301075268815,Nephtys_sp,Polychaetes
+CP14,Prey,Nephtys_sp,g.HBCDD,TRUE,2.096774193548387,2.096774193548387,Nephtys_sp,Polychaetes
+CP15,Prey,Spisula_subtruncata,a.HBCDD,FALSE,0,906.6071428571427,Spisula_subtruncata,Bivalves
+CP15,Prey,Spisula_subtruncata,b.HBCDD,FALSE,0,320.4464285714285,Spisula_subtruncata,Bivalves
+CP15,Prey,Spisula_subtruncata,g.HBCDD,FALSE,0,3507.857142857142,Spisula_subtruncata,Bivalves
+CP21,Prey,Scrobicularia_plana,a.HBCDD,FALSE,0,42.403556898113784,Scrobicularia_plana,Bivalves
+CP21,Prey,Scrobicularia_plana,b.HBCDD,FALSE,0,17.743974501747896,Scrobicularia_plana,Bivalves
+CP21,Prey,Scrobicularia_plana,g.HBCDD,FALSE,0,196.046511627907,Scrobicularia_plana,Bivalves
+CP23,Prey,Scrobicularia_plana,a.HBCDD,FALSE,0,74.05405405405406,Scrobicularia_plana,Bivalves
+CP23,Prey,Scrobicularia_plana,b.HBCDD,FALSE,0,34.189189189189186,Scrobicularia_plana,Bivalves
+CP23,Prey,Scrobicularia_plana,g.HBCDD,FALSE,0,313.2432432432432,Scrobicularia_plana,Bivalves
+CP25,Prey,Limecola_balthica,a.HBCDD,FALSE,0,22.93165467625899,Limecola_balthica,Bivalves
+CP25,Prey,Limecola_balthica,b.HBCDD,FALSE,0,0.8992805755395683,Limecola_balthica,Bivalves
+CP25,Prey,Limecola_balthica,g.HBCDD,FALSE,0,5.890287769784172,Limecola_balthica,Bivalves
+CP27+64+66,Prey,Spisula_subtruncata,a.HBCDD,FALSE,0,307.32636495537196,Spisula_subtruncata,Bivalves
+CP27+64+66,Prey,Spisula_subtruncata,b.HBCDD,FALSE,0,124.21022485689657,Spisula_subtruncata,Bivalves
+CP27+64+66,Prey,Spisula_subtruncata,g.HBCDD,FALSE,0,1284.110535405872,Spisula_subtruncata,Bivalves
+CP33,Prey,Cerastoderma_edule,a.HBCDD,FALSE,0,28.578578578578576,Cerastoderma_edule,Bivalves
+CP33,Prey,Cerastoderma_edule,b.HBCDD,FALSE,0,7.700266373251227,Cerastoderma_edule,Bivalves
+CP33,Prey,Cerastoderma_edule,g.HBCDD,FALSE,0,77.72772772772772,Cerastoderma_edule,Bivalves
+CP35,Prey,Cerastoderma_edule,a.HBCDD,FALSE,0,10.406811731315043,Cerastoderma_edule,Bivalves
+CP35,Prey,Cerastoderma_edule,b.HBCDD,FALSE,0,4.352807262630117,Cerastoderma_edule,Bivalves
+CP35,Prey,Cerastoderma_edule,g.HBCDD,FALSE,0,42.33680227057711,Cerastoderma_edule,Bivalves
+CP41,Prey,Nephtys_sp,a.HBCDD,FALSE,0,1.350438892640108,Nephtys_sp,Polychaetes
+CP41,Prey,Nephtys_sp,b.HBCDD,TRUE,0.6076975016880486,0.6076975016880486,Nephtys_sp,Polychaetes
+CP41,Prey,Nephtys_sp,g.HBCDD,TRUE,1.7555705604321403,1.7555705604321403,Nephtys_sp,Polychaetes
+CP42,Prey,Owenia_fusiformis,a.HBCDD,FALSE,0,20.562939796716186,Owenia_fusiformis,Polychaetes
+CP42,Prey,Owenia_fusiformis,b.HBCDD,FALSE,0,6.411258795934324,Owenia_fusiformis,Polychaetes
+CP42,Prey,Owenia_fusiformis,g.HBCDD,FALSE,0,61.53244722439406,Owenia_fusiformis,Polychaetes
+CP43,Prey,Lagis_koreni,a.HBCDD,FALSE,0,3.8950715421303657,Lagis_koreni,Polychaetes
+CP43,Prey,Lagis_koreni,b.HBCDD,TRUE,0.874403815580286,0.874403815580286,Lagis_koreni,Polychaetes
+CP43,Prey,Lagis_koreni,g.HBCDD,FALSE,0,10.2543720190779,Lagis_koreni,Polychaetes
+CP44,Prey,Hediste_diversicolor,a.HBCDD,FALSE,0,4.269662921348315,Hediste_diversicolor,Polychaetes
+CP44,Prey,Hediste_diversicolor,b.HBCDD,TRUE,0.8988764044943821,0.8988764044943821,Hediste_diversicolor,Polychaetes
+CP47,Prey,Lagis_koreni,a.HBCDD,FALSE,0,13.18359375,Lagis_koreni,Polychaetes
+CP47,Prey,Lagis_koreni,b.HBCDD,FALSE,0,3.2043277774003625,Lagis_koreni,Polychaetes
+CP47,Prey,Lagis_koreni,g.HBCDD,FALSE,0,23.339843749999996,Lagis_koreni,Polychaetes
+CP52,Prey,Crangon_crangon,a.HBCDD,TRUE,0.31662269129287596,0.31662269129287596,Crangon_crangon,Crustaceans
+CP52,Prey,Crangon_crangon,b.HBCDD,TRUE,0.31662269129287596,0.31662269129287596,Crangon_crangon,Crustaceans
+CP53,Prey,Crangon_crangon,a.HBCDD,TRUE,0.311804008908686,0.311804008908686,Crangon_crangon,Crustaceans
+CP53,Prey,Crangon_crangon,b.HBCDD,TRUE,0.311804008908686,0.311804008908686,Crangon_crangon,Crustaceans
+CP56,Prey,Scrobicularia_plana,a.HBCDD,FALSE,0,143.162108072048,Scrobicularia_plana,Bivalves
+CP56,Prey,Scrobicularia_plana,b.HBCDD,FALSE,0,67.47831887925284,Scrobicularia_plana,Bivalves
+CP56,Prey,Scrobicularia_plana,g.HBCDD,FALSE,0,712.108072048032,Scrobicularia_plana,Bivalves
+CP60,Prey,Limecola_balthica,a.HBCDD,FALSE,0,26.860564585115483,Limecola_balthica,Bivalves
+CP60,Prey,Limecola_balthica,b.HBCDD,FALSE,0,4.0205303678357565,Limecola_balthica,Bivalves
+CP60,Prey,Limecola_balthica,g.HBCDD,FALSE,0,42.55774165953807,Limecola_balthica,Bivalves
+CP62(+70),Prey,Abra_alba,a.HBCDD,FALSE,0,100.87514585764295,Abra_alba,Bivalves
+CP62(+70),Prey,Abra_alba,b.HBCDD,FALSE,0,43.5259841709445,Abra_alba,Bivalves
+CP62(+70),Prey,Abra_alba,g.HBCDD,FALSE,0,436.98949824970833,Abra_alba,Bivalves
+CP68,Prey,Spisula_subtruncata,a.HBCDD,FALSE,0,370.3703703703704,Spisula_subtruncata,Bivalves
+CP68,Prey,Spisula_subtruncata,b.HBCDD,FALSE,0,155.005005005005,Spisula_subtruncata,Bivalves
+CP68,Prey,Spisula_subtruncata,g.HBCDD,FALSE,0,2161.911911911912,Spisula_subtruncata,Bivalves
+CP72,Prey,Donax_vittatus,a.HBCDD,FALSE,0,16.02251407129456,Donax_vittatus,Bivalves
+CP72,Prey,Donax_vittatus,b.HBCDD,FALSE,0,5.140712945590995,Donax_vittatus,Bivalves
+CP72,Prey,Donax_vittatus,g.HBCDD,FALSE,0,64.46529080675423,Donax_vittatus,Bivalves
+T1 EM1/AN2 crevettes,Prey,Crangon_crangon,a.HBCDD,FALSE,0,0.5304212168486739,Crangon_crangon,Crustaceans
+T1 EM1/AN2 crevettes,Prey,Crangon_crangon,b.HBCDD,FALSE,0,0.09360374414976598,Crangon_crangon,Crustaceans
+T1 EM1/AN2 crevettes,Prey,Crangon_crangon,g.HBCDD,FALSE,0,1.5288611544461779,Crangon_crangon,Crustaceans
+T2 FN8 crevettes,Prey,Crangon_crangon,a.HBCDD,FALSE,0,0.3673094582185491,Crangon_crangon,Crustaceans
+T2 FN8 crevettes,Prey,Crangon_crangon,b.HBCDD,TRUE,0.09182736455463728,0.09182736455463728,Crangon_crangon,Crustaceans
+T2 FN8 crevettes,Prey,Crangon_crangon,g.HBCDD,TRUE,0.6336088154269972,0.6336088154269972,Crangon_crangon,Crustaceans

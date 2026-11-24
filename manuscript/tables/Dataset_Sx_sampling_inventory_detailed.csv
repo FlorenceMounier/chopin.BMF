@@ -1,0 +1,273 @@
+sample_TAG,analysis_type,contaminant_family,source_dataset,date,season,season_source,age_class,campaign,campaign_source,n_compounds
+CP02,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP02,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP03,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP03,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP03,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP04,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP04,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP04,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP05,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP05,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP06,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP06,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP06,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP07,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP07,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP09,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP09,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP09,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP11,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP11,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP11,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP12,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP12,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP12,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP13,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP13,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP13,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP14,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP14,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP14,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP15,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP15,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP15,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP17,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP17,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP19,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP19,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP21,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP21,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP21,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP23,Benthic chemistry,HBCDD,benthos_contam,,spring,Recorded in source,,,Missing,3
+CP23,Benthic chemistry,PCB,benthos_contam,,spring,Recorded in source,,,Missing,19
+CP23,Benthic chemistry,PFAS,benthos_contam,,spring,Recorded in source,,,Missing,29
+CP25,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP25,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP25,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP27+64+66,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP27+64+66,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP27+64+66,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP29+50,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP31,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP33,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP33,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP33,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP35,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP35,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP35,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP37,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP37,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP40,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP41,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP41,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP41,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP42,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP42,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP42,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP43,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP43,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP43,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP44,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP44,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP44,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP45,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP46,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP47,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP47,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP47,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP48,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP48,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP49,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP49,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP52,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP52,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP52,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP53,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP53,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP53,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP54,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP56,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP56,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP56,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP58,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP58,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP60,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP60,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP60,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP61,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP62(+70),Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP62(+70),Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP62(+70),Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP68,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP68,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP72,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+CP72,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP74,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP74,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP76,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP78,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+CP78,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+CP80,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+SA200,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+SA200,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+T1 EM1/AN2 crevettes,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+T1 EM1/AN2 crevettes,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+T1 EM1/AN2 crevettes,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+T2 FN8 crevettes,Benthic chemistry,HBCDD,benthos_contam,,autumn,Recorded in source,,,Missing,3
+T2 FN8 crevettes,Benthic chemistry,PCB,benthos_contam,,autumn,Recorded in source,,,Missing,19
+T2 FN8 crevettes,Benthic chemistry,PFAS,benthos_contam,,autumn,Recorded in source,,,Missing,29
+EM G0 oct 2017 pool1,Sole chemistry,HBCDD,soles_contam,2017-09-08,autumn,Recorded in source,G0,2017-09,Derived from date (YYYY-MM),3
+EM G0 oct 2017 pool1,Sole chemistry,PCB,soles_contam,2017-09-08,autumn,Recorded in source,G0,2017-09,Derived from date (YYYY-MM),19
+EM G0 oct 2017 pool1,Sole chemistry,PFAS,soles_contam,2017-09-08,autumn,Recorded in source,G0,2017-09,Derived from date (YYYY-MM),29
+EM G0 oct 2017 pool2,Sole chemistry,HBCDD,soles_contam,2017-09-08,autumn,Recorded in source,G0,2017-09,Derived from date (YYYY-MM),3
+EM G0 oct 2017 pool2,Sole chemistry,PCB,soles_contam,2017-09-08,autumn,Recorded in source,G0,2017-09,Derived from date (YYYY-MM),19
+EM G0 oct 2017 pool2,Sole chemistry,PFAS,soles_contam,2017-09-08,autumn,Recorded in source,G0,2017-09,Derived from date (YYYY-MM),29
+1017 FN G0 pool 1,Sole chemistry,HBCDD,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+1017 FN G0 pool 1,Sole chemistry,PCB,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+1017 FN G0 pool 1,Sole chemistry,PFAS,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+1017 FN G0 pool 2,Sole chemistry,HBCDD,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+1017 FN G0 pool 2,Sole chemistry,PCB,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+1017 FN G0 pool 2,Sole chemistry,PFAS,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+1017 FN G0 pool 3,Sole chemistry,HBCDD,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+1017 FN G0 pool 3,Sole chemistry,PCB,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+1017 FN G0 pool 3,Sole chemistry,PFAS,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+EM G0 oct 2017 pool3,Sole chemistry,HBCDD,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+EM G0 oct 2017 pool3,Sole chemistry,PCB,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+EM G0 oct 2017 pool3,Sole chemistry,PFAS,soles_contam,2017-10-05,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+1017 FS G0 pool 1,Sole chemistry,HBCDD,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+1017 FS G0 pool 1,Sole chemistry,PCB,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+1017 FS G0 pool 1,Sole chemistry,PFAS,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+1017 FS G0 pool 2,Sole chemistry,HBCDD,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+1017 FS G0 pool 2,Sole chemistry,PCB,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+1017 FS G0 pool 2,Sole chemistry,PFAS,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+1017 FS G0 pool 3,Sole chemistry,HBCDD,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+1017 FS G0 pool 3,Sole chemistry,PCB,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+1017 FS G0 pool 3,Sole chemistry,PFAS,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+1017 FS G0 pool 4,Sole chemistry,HBCDD,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),3
+1017 FS G0 pool 4,Sole chemistry,PCB,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),19
+1017 FS G0 pool 4,Sole chemistry,PFAS,soles_contam,2017-10-13,autumn,Recorded in source,G0,2017-10,Derived from date (YYYY-MM),29
+09-17/AN1-Sole-G0/5,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/AN2-Sole-G0/1,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/AN2-Sole-G0/2,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/AN2-Sole-G0/3,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/AN3-Sole-G0/4,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/AN4-Sole-G0/2,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/C1-Sole-G0/1,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/C1-Sole-G0/2,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/C1-Sole-G0/3,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/C1-Sole-G0/4,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/C1-Sole-G0/5,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+09-17/C1-Sole-G0/6,Stomach contents,,soles_stomach,2017-09-07,autumn,Derived using script 02 month rule,G0,2017-09,Derived from date (YYYY-MM),
+3-10-17/FS1-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS1-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS1-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS1-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS3-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS3-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS4-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS5-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+3-10-17/FS5-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-03,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/AN2-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/6,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/7,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/C7-Sole-G0/8,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN1-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN1-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN1-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN1-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN1-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN5-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN5-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN5-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN5-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/11,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/17,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/21,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/22,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/23,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/24,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/25,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/26,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN8-Sole-G0/6,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN9-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+4-10-17/FN9-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-04,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN1-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN1-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN2-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN2-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN2-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN2-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN2-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN2-Sole-G0/6,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN2-Sole-G0/7,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AN3-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/C1-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/C1-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/C1-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/C2-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FN3-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FN5-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FN5-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FN9-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-10,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS4-Sole-G0/1a,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS4-Sole-G0/1b,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS4-Sole-G0/2a,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS4-Sole-G0/2b,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS4-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS5-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS5-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS5-Sole-G0/8,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS5-sole-G0/3,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/AS5-sole-G0/6,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS0-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/10,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/6,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/7,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3-Sole-G0/8,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/10,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/12,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/13,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/16,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/17,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/18,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/19,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/20,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/21,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/25,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/6,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/7,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS3bis-Sole-G0/8,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS5-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS5-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/FS5-Sole-G0/6,Stomach contents,,soles_stomach,2017-10-12,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC1-EM1-AN2-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/10,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/13,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/14,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/15,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/16,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/2,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/3,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/4,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/5,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/6,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/7,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC3-FN5-Sole-G0/8,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),
+10-17/CC5-FN11-Sole-G0/1,Stomach contents,,soles_stomach,2017-10-25,autumn,Derived using script 02 month rule,G0,2017-10,Derived from date (YYYY-MM),

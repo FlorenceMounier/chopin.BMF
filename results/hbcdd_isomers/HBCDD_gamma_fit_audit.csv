@@ -1,0 +1,37 @@
+family,compound_name,compartment,group,distribution,n,n_censored,n_uncensored,pct_censored,fit_status,fallback_method,fit_error,parameter_1,parameter_2,n_imputed,n_imputed_mle,n_imputed_fallback,n_unresolved,imputed_min,imputed_median,imputed_max
+HBCDD,a.HBCDD,Prey,Abra_alba,gamma,1,0,1,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Cerastoderma_edule,gamma,3,0,3,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Crangon_crangon,gamma,4,2,2,50,fitted,NA,NA,6.307021101460715,0.053811426569754725,2,2,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Donax_vittatus,gamma,1,0,1,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Hediste_diversicolor,gamma,2,0,2,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Lagis_koreni,gamma,4,0,4,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Limecola_balthica,gamma,2,0,2,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Nephtys_sp,gamma,3,2,1,66.66666666666667,insufficient_data,loq_half,NA,NA,NA,2,0,2,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Owenia_fusiformis,gamma,2,0,2,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Scrobicularia_plana,gamma,4,0,4,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Prey,Spisula_subtruncata,gamma,3,0,3,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,a.HBCDD,Sole,Solea solea,gamma,10,0,10,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Abra_alba,gamma,1,0,1,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Cerastoderma_edule,gamma,3,0,3,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Crangon_crangon,gamma,4,3,1,75,insufficient_data,loq_half,NA,NA,NA,3,0,3,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Donax_vittatus,gamma,1,0,1,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Hediste_diversicolor,gamma,2,1,1,50,insufficient_data,loq_half,NA,NA,NA,1,0,1,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Lagis_koreni,gamma,4,1,3,25,fitted,NA,NA,2.5080432637006607,0.6475523785070885,1,1,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Limecola_balthica,gamma,2,0,2,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Nephtys_sp,gamma,3,3,0,100,insufficient_data,loq_half,NA,NA,NA,3,0,3,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Owenia_fusiformis,gamma,2,1,1,50,insufficient_data,loq_half,NA,NA,NA,1,0,1,0,0.13114754098360656,0.13114754098360656,0.13114754098360656
+HBCDD,b.HBCDD,Prey,Scrobicularia_plana,gamma,4,0,4,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Prey,Spisula_subtruncata,gamma,3,0,3,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,b.HBCDD,Sole,Solea solea,gamma,10,10,0,100,insufficient_data,loq_half,NA,NA,NA,10,0,10,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Abra_alba,gamma,1,0,1,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Cerastoderma_edule,gamma,3,0,3,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Crangon_crangon,gamma,2,1,1,50,insufficient_data,loq_half,NA,NA,NA,1,0,1,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Donax_vittatus,gamma,1,0,1,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Hediste_diversicolor,gamma,1,0,1,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Lagis_koreni,gamma,4,0,4,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Limecola_balthica,gamma,2,0,2,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Nephtys_sp,gamma,3,3,0,100,insufficient_data,loq_half,NA,NA,NA,3,0,3,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Owenia_fusiformis,gamma,2,0,2,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Scrobicularia_plana,gamma,4,0,4,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Prey,Spisula_subtruncata,gamma,3,0,3,0,not_needed,NA,NA,NA,NA,0,0,0,0,NA,NA,NA
+HBCDD,g.HBCDD,Sole,Solea solea,gamma,10,9,1,90,insufficient_data,loq_half,NA,NA,NA,9,0,9,0,NA,NA,NA

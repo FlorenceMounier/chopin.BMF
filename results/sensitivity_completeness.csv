@@ -1,0 +1,33 @@
+family,compound_name,unit,n_combinations,n_nonnegative,n_positive,complete_nonnegative,complete_positive,contains_zero,sensitivity_status
+HBCDD,a.HBCDD,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+HBCDD,b.HBCDD,ng_glw,12,12,9,TRUE,FALSE,TRUE,Complete: zero BMF prevents finite log-ratios
+HBCDD,g.HBCDD,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB101,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB105,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB110,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB118,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB128,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB132,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB138,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB149,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB153,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB156,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB170,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB180,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB187,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB194,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB28,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB31,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB44,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB49,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PCB,CB52,ng_glw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,8.2_FTSA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,Br.PFOS,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,EtFOSAA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,FOSA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,L.PFOS,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,PFDA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,PFDoA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,PFNA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,PFTeDA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,PFTrDA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible

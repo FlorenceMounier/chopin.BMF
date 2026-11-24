@@ -1,0 +1,9 @@
+^chopin\.BMF\.Rproj$
+^\.Rproj\.user$
+^\.github$
+^LICENSE\.md$
+^vignettes/articles$
+^data-raw$
+^dev$
+^README\.Rmd$
+^codecov\.yml$

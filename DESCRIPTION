@@ -1,0 +1,33 @@
+Package: chopin.BMF
+Title: Field-Based Contaminant Biomagnification in the Seine Estuary
+Version: 0.1.0
+Authors@R: 
+    person("Florence", "Mounier", , "florence.mounier42@gmail.com", role = c("aut", "cre"))
+Description: Reproducible data preparation, sensitivity analyses, and manuscript outputs for field-based predator-to-diet contaminant concentration ratios in juvenile common sole.
+License: MIT + file LICENSE
+Suggests:
+    Btrait,
+    chopin.data,
+    dplyr (>= 1.1.0),
+    flextable,
+    ggrepel,
+    janitor,
+    knitr,
+    lubridate,
+    officer,
+    officedown,
+    readxl,
+    rmarkdown,
+    scales,
+    survival,
+    tidytext,
+    tidyverse,
+    usethis,
+    writexl
+Config/Needs/website: rmarkdown
+Config/roxygen2/version: 8.1.0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Depends: 
+    R (>= 4.1)

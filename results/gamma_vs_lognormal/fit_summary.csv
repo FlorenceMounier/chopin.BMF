@@ -1,0 +1,7 @@
+distribution,fit_status,n_groups
+gamma,fitted,36
+gamma,insufficient_data,43
+gamma,not_needed,401
+lognormal,fitted,36
+lognormal,insufficient_data,43
+lognormal,not_needed,401

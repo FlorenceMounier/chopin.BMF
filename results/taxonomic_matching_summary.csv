@@ -1,0 +1,63 @@
+observed_species,shared_rank,priority,n_candidates,taxonomic_matching_quality
+Abra alba,Species,16,1,Perfect
+Alitta succinea,Species,16,1,Perfect
+Ampelisca sp,Parvorder,11,1,NA
+Ampharete lindstroemi,Suborder,9,2,Low
+Ampharetidae,Suborder,9,2,Low
+Amphipoda,Order,8,14,Low
+Annelida,Phylum,2,21,Low
+Aphroditiformia,Suborder,9,3,Low
+Arenicola marina,Species,16,1,Perfect
+Arthropoda,Phylum,2,29,Low
+Bathyporeia sp,Superfamily,12,1,NA
+Bivalvia,Class,5,12,Low
+Boccardiella ligerica,Family,13,3,Moderate
+Brachyura,Infraorder,10,3,Low
+Carcinus maenas,Species,16,1,Perfect
+Caridea,Infraorder,10,2,Low
+Cerastoderma edule,Species,16,1,Perfect
+Copepoda,Superclass,4,28,Low
+Corophiidae,Family,13,2,Moderate
+Corophium volutator,Species,16,1,Perfect
+Crangon crangon,Species,16,1,Perfect
+Crangonidae,Family,13,1,Moderate
+Cyathura carinata,Species,16,1,Perfect
+Diastylis bradyi,Species,16,1,Perfect
+Diastylis sp,Genus,15,1,High
+Ericthonius punctatus,Superfamily,12,2,NA
+Eunereis longissima,Species,16,1,Perfect
+Glyceridae,Suborder,9,1,Low
+Harpacticoida,Superclass,4,28,Low
+Hediste diversicolor,Species,16,1,Perfect
+Hydrozoa,Class,5,1,Low
+Kurtiella bidentata,Species,16,1,Perfect
+Lagis koreni,Species,16,1,Perfect
+Lanice conchilega,Species,16,1,Perfect
+Leucothoe incisa,Species,16,1,Perfect
+Liocarcinus sp,Genus,15,1,High
+Magelona sp,Subclass,6,1,Low
+Melinna palmata,Suborder,9,2,Low
+Monocorophium insidiosum,Species,16,1,Perfect
+Mya sp,Superorder,7,10,Low
+Nematoda,Phylum,2,1,Low
+Nephtys kersivalensis,Species,16,1,Perfect
+Nephtys sp,Genus,15,2,High
+Nereididae,Family,13,3,Moderate
+Nucula nitidosa,Species,16,1,Perfect
+Ostracoda,Subphylum,3,28,Low
+Owenia fusiformis,Species,16,1,Perfect
+Pariambus typicus,Species,16,1,Perfect
+Perioculodes longimanus,Species,16,1,Perfect
+Pholoe inornata,Species,16,1,Perfect
+Photis longicaudata,Species,16,1,Perfect
+Phyllodocidae,Family,13,3,Moderate
+Polydora ciliata,Species,16,1,Perfect
+Polynoidae,Suborder,9,3,Low
+Portunidae,Superfamily,12,3,NA
+Pseudocuma (Pseudocuma) longicorne,Species,16,1,Perfect
+Pseudopolydora pulchra,Species,16,1,Perfect
+Sabellaria spinulosa,Subclass,6,7,Low
+Sessilia,Subclass,6,1,Low
+Spionidae,Family,13,3,Moderate
+Spisula subtruncata,Species,16,1,Perfect
+eurytemora affinis,Superclass,4,28,Low

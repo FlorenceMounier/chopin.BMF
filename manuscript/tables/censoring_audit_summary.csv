@@ -1,0 +1,9 @@
+name,value
+n_total,480
+n_requiring_imputation,79
+n_fitted,36
+n_fallback,43
+fallback_pct_total,8.958333333333334
+fallback_pct_censored,54.43037974683544
+Fewer than 2 uncensored observations,22
+Fewer than 3 observations,21
