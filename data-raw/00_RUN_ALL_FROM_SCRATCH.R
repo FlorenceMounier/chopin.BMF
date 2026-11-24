@@ -32,14 +32,26 @@ run_all <- function(include_snapshot = FALSE) {
   message("\n>>> Post-run source/results consistency check")
   source("data-raw/10_CHOPIN_postrun_provenance.R",
          local = new.env(parent = globalenv()), echo = FALSE)
+
   message("<<< Consistency check passed")
+
+# Reproducibility manifest
+  message("\n>>> Generating reproducibility manifest")
+  source(
+    "data-raw/11_CHOPIN_reproductibility_manifest.R",
+    local = new.env(parent = globalenv()),
+    echo = FALSE
+  )
+  message("<<< Reproducibility manifest generated")
+
+# Optional submission snapshot
   if (isTRUE(include_snapshot)) {
     message("\n>>> Creating submission snapshot")
-    source("data-raw/11_CHOPIN_checked_submission_snapshot.R",
+    source("data-raw/12_CHOPIN_checked_submission_snapshot.R",
            local = new.env(parent = globalenv()), echo = FALSE)
   }
   message("\nCHOPIN pipeline completed. Inspect results/, data/, and manuscript/.")
   invisible(TRUE)
 }
 
-run_all(include_snapshot = FALSE)  # Change to TRUE only for a frozen submission run.
+run_all(include_snapshot = TRUE)  # Change to TRUE only for a frozen submission run.

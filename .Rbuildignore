@@ -7,3 +7,7 @@
 ^dev$
 ^README\.Rmd$
 ^codecov\.yml$
+^_pkgdown\.yml$
+^manuscript$
+^results$
+^submission_snapshot$

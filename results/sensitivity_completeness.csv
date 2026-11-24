@@ -27,7 +27,7 @@ PFAS,EtFOSAA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
 PFAS,FOSA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
 PFAS,L.PFOS,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
 PFAS,PFDA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
-PFAS,PFDoA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
+PFAS,PFDoDA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
 PFAS,PFNA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
 PFAS,PFTeDA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible
 PFAS,PFTrDA,ng_gdw,12,12,12,TRUE,TRUE,FALSE,Complete: log-ratio eligible

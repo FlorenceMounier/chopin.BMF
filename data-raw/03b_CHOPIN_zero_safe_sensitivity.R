@@ -105,7 +105,7 @@ family_eligibility <- all_compounds |>
 for (pair in list(
   list(all_compounds, "sensitivity_metric_eligibility"),
   list(zero_safe_sensitivity, "sensitivity_zero_safe"),
-  list(family_eligibility, "sensitivity_family_eligibility"),
+  list(family_eligibility, "family_eligibility"),
   list(by_censor_scenario, "sensitivity_zero_safe_by_scenario"),
   list(by_diet_weight, "sensitivity_zero_safe_by_diet_method")
 )) {
@@ -115,7 +115,7 @@ for (pair in list(
 }
 
 readr::write_csv(
-  sensitivity_family_eligibility,
+  family_eligibility,
   "manuscript/tables/Table_Sx_Sensitivity_eligibility.csv"
 )
 

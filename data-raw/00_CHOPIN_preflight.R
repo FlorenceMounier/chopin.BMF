@@ -19,17 +19,93 @@ if (any(!file.exists(required_files))) {
        paste(required_files[!file.exists(required_files)], collapse = ", "))
 }
 
-required_packages <- c(
-  "chopin.data", "tidyverse", "Btrait", "readxl", "janitor",
-  "survival", "usethis", "ggrepel", "scales", "tidytext", "lubridate"
-)
-missing_packages <- required_packages[
-  !vapply(required_packages, requireNamespace, quietly = TRUE, FUN.VALUE = logical(1))
-]
-if (length(missing_packages)) {
-  stop("Install these R packages first: ", paste(missing_packages, collapse = ", "),
-       ". Source package chopin.data is installed separately; see README.")
+
+
+# Verify the exact Gogina source workbook
+
+checksum_file <- "data-raw/source_checksums.csv"
+
+if (!file.exists(checksum_file)) {
+  stop("Missing source checksum manifest: ", checksum_file)
 }
+
+checksums <- readr::read_csv(
+  checksum_file,
+  show_col_types = FALSE
+)
+
+gogina_path <- "inst/extdata/Gogina_data-2021-0002-01.xlsx"
+
+expected_sha256 <- checksums |>
+  dplyr::filter(file == gogina_path) |>
+  dplyr::pull(sha256)
+
+if (length(expected_sha256) != 1L) {
+  stop("Expected exactly one checksum for the Gogina workbook.")
+}
+
+if (!file.exists(gogina_path)) {
+  stop("Missing Gogina source workbook: ", gogina_path)
+}
+
+actual_sha256 <- digest::digest(
+  object = gogina_path,
+  algo = "sha256",
+  file = TRUE
+)
+
+if (!identical(actual_sha256, expected_sha256)) {
+  stop(
+    "Gogina source workbook checksum mismatch!\n",
+    "Expected: ", expected_sha256, "\n",
+    "Observed: ", actual_sha256, "\n",
+    "Check the source workbook version."
+  )
+}
+
+message("Gogina workbook SHA-256 verified.")
+
+
+required_packages <- c(
+  # Data sources
+  "chopin.data", "Btrait",
+
+  # Data preparation and analyses
+  "tidyverse", "dplyr", "purrr",
+  "forcats", "tibble", "readr",
+  "readxl", "writexl",
+  "janitor", "lubridate",
+  "tidytext", "stringr",
+
+  # Figures
+  "ggrepel", "scales",
+
+  # Word / R Markdown outputs
+  "rmarkdown", "knitr",
+  "officedown", "officer",
+  "flextable",
+
+  # Package data creation
+  "usethis", "utils", "tools", "chopin.BMF"
+)
+
+missing_packages <- required_packages[
+  !vapply(
+    required_packages,
+    requireNamespace,
+    quietly = TRUE,
+    FUN.VALUE = logical(1)
+  )
+]
+
+if (length(missing_packages)) {
+  stop(
+    "Missing packages: ",
+    paste(missing_packages, collapse = ", "),
+    "\nInstall the missing dependencies before running the pipeline."
+  )
+}
+
 if (getRversion() < "4.1.0" || utils::packageVersion("dplyr") < "1.1.0") {
   stop("This pipeline requires R >= 4.1 and dplyr >= 1.1.")
 }

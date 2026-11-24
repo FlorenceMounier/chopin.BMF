@@ -1,4 +1,4 @@
-# CHOPIN | 09 - New submission snapshot only after passing provenance checks
+# CHOPIN | 12 - New submission snapshot only after passing provenance checks
 # Run only AFTER rerunning the original production pipeline + reviewer checks.
 suppressPackageStartupMessages(library(tidyverse))
 source('data-raw/10_CHOPIN_postrun_provenance.R', local=TRUE) # Check regenerated vs source pools
@@ -15,9 +15,40 @@ n_compounds <- nrow(dplyr::distinct(c, family, compound_name, unit))
 if (nrow(c) != 12L * n_compounds)
   stop('Expected 4 censoring treatments x 3 diet weights per retained compound')
 
+## SNAPSHOT PATH
+
 TAG <- format(Sys.Date(),'%Y%m%d')
-OUT <- file.path('submission_snapshot',paste0('CHOPIN_validated_',TAG))
+# Parent directory of the chopin.BMF project
+PROJECT_PARENT <- dirname(
+  normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+)
+# Dedicated external directory for frozen snapshots
+SNAPSHOT_ROOT <- file.path(
+  PROJECT_PARENT,
+  "CHOPIN_submission_snapshots"
+)
+# Create archive directory if necessary
+dir.create(
+  SNAPSHOT_ROOT,
+  recursive = TRUE,
+  showWarnings = FALSE
+)
+# Snapshot destination
+OUT <- file.path(
+  SNAPSHOT_ROOT,
+  paste0("CHOPIN_validated_", TAG)
+)
+# Do not overwrite an existing snapshot
+if (dir.exists(OUT)) {
+  stop(
+    "Snapshot already exists: ", OUT,
+    "\nChoose another date or archive name."
+  )
+}
+message("Snapshot destination: ", OUT)
 if (dir.exists(OUT)) stop('Snapshot already exists: ',OUT)
+
+
 paths <- c('DESCRIPTION','README.md','README_BUILD_FROM_ZERO.md','manuscript/Article.Rmd','manuscript/Article_SI.Rmd',
            'manuscript/references.bib','manuscript/template.docx',
            'manuscript/template_SI.docx','inst/extdata/Gogina_data-2021-0002-01.xlsx')

@@ -64,7 +64,7 @@ soles_contam_biometrics <- soles_contam |>
   summarise(
     median_length = safe_median(length_TL_cm),
     min_length_68 = safe_extreme(length_TL_cm - length_TL_cm_sd),
-    max_length_68 = safe_extreme(length_TL_cm - length_TL_cm_sd, max),
+    max_length_68 = safe_extreme(length_TL_cm + length_TL_cm_sd, max),
     median_ww = safe_median(mass_tot_gww),
     min_ww_68 = safe_extreme(mass_tot_gww - mass_tot_gww_sd),
     max_ww_68 = safe_extreme(mass_tot_gww + mass_tot_gww_sd, max)

@@ -61,6 +61,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   error = FALSE,  
+  ft.keepnext = FALSE,
   fig.align = "center",
   fig.width = 7,
   fig.height = 5,
@@ -76,12 +77,12 @@ library(tidyverse)
 library(flextable)
 ```
 
-# Supplementary materials
+##### Supplementary materials
 
 ## Chemical names and CAS
 
 
-```{r tab-chemical-inventory, tab.id="tab-chemical-inventory", tab.cap="List of per- and polyfluoroalkyl substances (PFAS), hexabromocyclododecane (HBCDD) isomers and polychlorinated biphenyl (PCB) congeners included in the chemical inventory, with their chemical subgroups, acronyms, common names and Chemical Abstracts Service (CAS) registry numbers. An asterisk (*) identifies compounds excluded from the field-based biomagnification factor (BMF) analyses according to the current selection decisions. Exclusion and assessment statuses were generated from the current analytical pipeline rather than assigned manually.", echo=FALSE, message=FALSE, warning=FALSE}
+```{r tbl-chemical-inventory, tab.id="tab-chemical-inventory", tab.cap="List of per- and polyfluoroalkyl substances (PFAS), hexabromocyclododecane (HBCDD) isomers and polychlorinated biphenyl (PCB) congeners included in the chemical inventory, with their chemical subgroups, acronyms, common names and Chemical Abstracts Service (CAS) registry numbers. An asterisk (*) identifies compounds excluded from the field-based biomagnification factor (BMF) analyses according to the current selection decisions. Exclusion and assessment statuses were generated from the current analytical pipeline rather than assigned manually.", echo=FALSE, message=FALSE, warning=FALSE}
 
 # 1. Chemical inventory: descriptive information only.
 # Exclusion decisions are NOT coded in this table.
@@ -304,41 +305,113 @@ ft_contaminants <- contaminants_info |>
   width(j = "Common_name", width = 3.05) |>
   width(j = "CAS", width = 1.10) |>
   valign(valign = "center", part = "all") |>
-  add_footer_lines(
-    values = c(
-      "* Compound excluded from the BMF analyses.",
-      "† Compound not assessed in the current BMF selection decisions."
-    )
-  )
+  add_footer_lines("* Compound excluded from the BMF analyses.") |>
+  flextable::set_table_properties(opts_word = list(split = TRUE, repeat_headers = TRUE)) |>
+  flextable::paginate(init = FALSE, hdr_ftr = TRUE)
 
 ft_contaminants
 ```
 
 
 
+<!---BLOCK_LANDSCAPE_START--->
 
 ## Sampling inventory
 
-The following table provides an inventory of the biological samples used for dietary reconstruction and contaminant analyses, including their sampling dates, seasons and available campaign information. All juvenile sole stomach-content samples and sole pools used for chemical analyses were collected in autumn. In contrast, benthic prey samples used for chemical analyses were collected in both spring and autumn.
+All stomach-content samples and juvenile sole pools used for chemical analyses were collected in autumn, whereas benthic prey samples used for chemical analyses originated from both spring and autumn campaigns. Both seasons were included for benthic chemistry to improve sample availability and taxonomic coverage.
 
-Both seasons were included for benthic prey chemistry to increase the number of available samples and improve the representation of prey taxa in the dietary contaminant dataset. Restricting benthic chemistry to autumn samples would have substantially reduced the data available for calculating field-based BMF estimates.
+Supplementary Table S2 summarises the sampling inventory by analysis type and season, including the availability of sampling dates and the chemical families analysed. Exact sampling dates were available for sole chemistry and stomach-content samples, but not for individual benthic chemistry records. Consequently, the inventory does not establish direct temporal matching between predator and prey samples.
 
-Consequently, predator and prey contaminant concentrations were not always derived from temporally matched samples. The inventory documents the available sampling information but does not imply direct spatial or temporal matching between individual predator and prey samples. Where campaign metadata were unavailable, the corresponding information was derived from sampling dates when possible.
+The complete sample-level inventory, including individual sample identifiers and available metadata, is provided as a separate CSV file in the accompanying data and code repository.
 
-```{r tab.id="tab-sampling-inventory", tab.cap="Inventory of samples used for the CHOPIN BMF estimates and dietary reconstruction.", echo=FALSE}
-sampling_table <- read_csv("tables/Table_Sx_sampling_inventory.csv",
-                           show_col_types = FALSE, na = "")
-sampling_table |> 
-  select(-c(`Sampling date(s)`, Campaign, `Age class`)) |> 
-flextable() |>
+```{r tbl-sampling-inventory, tab.id="tab-sampling-inventory", tab.cap="Summary of source sample identifiers used for dietary reconstruction and contaminant analyses, grouped by analysis type and sampling season. Date availability indicates the number of identifiers with a recorded sampling date. Chemical-family counts indicate sample identifiers with that family listed in the analytical inventory; families may overlap and these counts do not represent quantification frequencies.", echo=FALSE}
+
+inventory <- readr::read_csv(
+  "tables/Table_Sx_sampling_inventory.csv",
+  show_col_types = FALSE
+) |>
+  mutate(sampling_date = as.Date(`Sampling date(s)`))
+
+# Avoid relying on the computer's locale for English date labels.
+short_en_date <- function(x) {
+  paste0(
+    as.integer(format(x, "%d")), " ",
+    month.abb[as.integer(format(x, "%m"))]
+  )
+}
+
+observed_date_span <- function(x) {
+  valid <- sort(unique(x[!is.na(x)]))
+  if (!length(valid)) return("Not recorded")
+  last <- valid[length(valid)]
+  paste0(short_en_date(valid[1]), "–", short_en_date(last), " ",
+         format(last, "%Y"))
+}
+
+inventory_summary <- inventory |>
+  group_by(`Analysis type`, Season) |>
+  summarise(
+    n_ids = n_distinct(`Sample ID`),
+    n_dated = sum(!is.na(sampling_date)),
+    observed_span = observed_date_span(sampling_date),
+    n_pcb = sum(str_detect(`Contaminant families`, fixed("PCB")), na.rm = TRUE),
+    n_hbcdd = sum(str_detect(`Contaminant families`, fixed("HBCDD")), na.rm = TRUE),
+    n_pfas = sum(str_detect(`Contaminant families`, fixed("PFAS")), na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  mutate(
+    `Date information` = if_else(
+      n_dated == 0L,
+      paste0("0/", n_ids, "; not recorded"),
+      paste0(n_dated, "/", n_ids, "; ", observed_span)
+    ),
+    `Families analysed (n)` = if_else(
+      n_pcb + n_hbcdd + n_pfas == 0,
+      "Not applicable",
+      paste0("PCB ", n_pcb, "; HBCDD ", n_hbcdd,
+             "; PFAS ", n_pfas)
+    ),
+    Season = tools::toTitleCase(Season)
+  ) |>
+  arrange(
+    factor(`Analysis type`, levels = c(
+      "Stomach contents", "Sole chemistry", "Benthic chemistry"
+    )),
+    factor(Season, levels = c("Spring", "Autumn"))
+  ) |>
+  transmute(
+    `Analysis type`, Season,
+    `Sample IDs (n)` = n_ids,
+    `Date information`,
+    `Families analysed (n)`
+  )
+
+stopifnot(sum(inventory_summary$`Sample IDs (n)`) ==
+            dplyr::n_distinct(inventory$`Sample ID`))
+
+flextable(inventory_summary) |>
   theme_booktabs() |>
+  set_table_properties(layout = "fixed") |>
+  width(j = "Analysis type", width = 1.25) |>
+  width(j = "Season", width = 0.60) |>
+  width(j = "Sample IDs (n)", width = 0.65) |>
+  width(j = "Date information", width = 1.45) |>
+  width(j = "Families analysed (n)", width = 2.10) |>
   fontsize(size = 8, part = "all") |>
-  set_table_properties(layout = "autofit")
+  padding(padding = 2, part = "all") |>
+  bold(part = "header") |>
+  align(j = "Sample IDs (n)", align = "center", part = "all") |>
+  valign(valign = "center", part = "all")
 ```
+
+*Note.* Counts are numbers of distinct source sample identifiers, not necessarily independent biological replicates. Sole chemical samples are pooled samples, whereas stomach-content identifiers refer to the diet observations. Some benthic chemistry identifiers correspond to composite pools. All 50 benthic chemistry identifiers lack exact dates in the supplied inventory. Site or sector information is not provided in this CSV and therefore cannot be summarised without an additional source.
+
+<!---BLOCK_LANDSCAPE_STOP--->
+
 
 ## Benthic prey species analysed for organic contaminants
 
-```{r, tab.id="tab-benthos-species", tab.cap="Benthic prey species analysed for organic contaminants, their taxonomic group, feeding mode and number of pooled samples (n).", echo=FALSE, message=FALSE, warning=FALSE}
+```{r tbl-benthos-species, tab.id="tab-benthos-species", tab.cap="Benthic prey species analysed for organic contaminants, their taxonomic group, feeding mode and number of pooled samples (n).", echo=FALSE, message=FALSE, warning=FALSE}
 benthos_species <- tribble(
   ~Species,                 ~Taxon,       ~`Feeding mode`,      ~n,
   "Abra alba",              "Bivalvia",   "Suspension feeder",   3,
@@ -376,14 +449,16 @@ ft <- flextable(benthos_species) |>
   italic(j = "Species", part = "body") |>
   align(j = "n", align = "center", part = "all") |>
   bold(part = "header") |>
-  autofit()
+  autofit() |>
+  flextable::set_table_properties(opts_word = list(split = TRUE, repeat_headers = TRUE)) |>
+  flextable::paginate(init = FALSE, hdr_ftr = TRUE)
 
 ft
 ```
 
 ## Soles G0 pools biometrics statistics
 
-```{r tab.id="tab-sole-biometrics", tab.cap="Biometric summary of autumn age-0 common sole pools used in the chemical analyses.", fig.show='hold'}
+```{r tbl-sole-biometrics, tab.id="tab-sole-biometrics", tab.cap="Biometric summary of autumn age-0 common sole pools used in the chemical analyses.", fig.show='hold'}
 soles_G0_pools_biometrics |> 
   filter(season == "autumn") |> 
   summarise(
@@ -393,13 +468,13 @@ soles_G0_pools_biometrics |>
     "SD mass" = sd(mass_tot_gww),
     ) |> 
 flextable() |>
-  autofit() |>
+  flextable::set_table_properties(layout = "fixed") |>  
   bold(part = "header")
 ```
 
 ## Contaminant concentrations in juvenile sole and benthic prey
 
-```{r fig.cap="Distribution of contaminant concentrations in age-0 common sole (Solea solea) and benthic prey species sampled in the Seine estuary. Concentrations are presented as the sum of the selected PCB congeners, HBCDD isomers, and PFAS compounds, respectively. PCB and HBCDD concentrations were normalised to total lipid content (ng g⁻¹ lipid weight), whereas PFAS concentrations were expressed on a dry-weight basis (ng g⁻¹ dry weight). Small coloured points represent individual pooled samples, black diamonds indicate arithmetic mean concentrations, and horizontal black lines represent interquartile ranges (25th–75th percentiles). Organisms are distinguished by major taxonomic group. Concentrations below the limit of quantification (LOQ) were replaced by LOQ/2. Only samples with complete concentration data for the selected compounds were included. The x-axis is logarithmic, with independent scales for each contaminant family.", fig.show='hold'}
+```{r fig-contamination-levels, fig.cap="Distribution of contaminant concentrations in age-0 common sole (Solea solea) and benthic prey species sampled in the Seine estuary. Concentrations are presented as the sum of the selected PCB congeners, HBCDD isomers, and PFAS compounds, respectively. PCB and HBCDD concentrations were normalised to total lipid content (ng g⁻¹ lipid weight), whereas PFAS concentrations were expressed on a dry-weight basis (ng g⁻¹ dry weight). Small coloured points represent individual pooled samples, black diamonds indicate arithmetic mean concentrations, and horizontal black lines represent interquartile ranges (25th–75th percentiles). Organisms are distinguished by major taxonomic group. Concentrations below the limit of quantification (LOQ) were replaced by LOQ/2. Only samples with complete concentration data for the selected compounds were included. The x-axis is logarithmic, with independent scales for each contaminant family.", fig.show='hold'}
 knitr::include_graphics(
   "../manuscript/figures/S_contamination_levels.png"
   )
@@ -407,15 +482,19 @@ knitr::include_graphics(
 
 ## HBCDD isomers contamination level profile
 
-```{r fig.cap="Relative contributions of α-, β- and γ-HBCDD to total HBCDD concentrations in juvenile common sole and benthic prey from the Seine estuary. Proportions were calculated using LOQ/2 substitution for concentrations below the limit of quantification and should therefore be interpreted as scenario-dependent estimates rather than directly observed isomeric profiles. Quantification frequencies differed markedly among isomers, particularly in juvenile soles, where β-HBCDD was entirely censored and γ-HBCDD was censored in nine of ten pools. Alternative censoring treatments and analytical bounds are presented in Supplementary Table Sx. Concentrations are expressed on a total lipid-weight basis.", fig.show='hold'}
+```{r fig-hbcdd-isomer-profiles, fig.cap="Relative contributions of α-, β- and γ-HBCDD to total HBCDD concentrations in juvenile common sole and benthic prey from the Seine estuary. Proportions were calculated using LOQ/2 substitution for concentrations below the limit of quantification and should therefore be interpreted as scenario-dependent estimates rather than directly observed isomeric profiles. Quantification frequencies differed markedly among isomers, particularly in juvenile soles, where β-HBCDD was entirely censored and γ-HBCDD was censored in nine of ten pools. Additional censoring treatments and analytical bounds are presented in the HBCDD-specific bounds table below. Concentrations are expressed on a total lipid-weight basis.", fig.show='hold'}
 knitr::include_graphics(
   "../manuscript/figures/S_HBCDD_isomer_profiles.png"
   )
 ```
 
+The HBCDD censoring treatments and analytical bounds are reported in Supplementary Table S\@ref(tab:tab-hbcdd-bounds).
+
+<!---BLOCK_LANDSCAPE_START--->
+
 ## Best available taxonomic matching of prey in stomach content
 
-```{r tab.id="tab-prey-masses", tab.cap="Taxonomic matching, data sources, and estimated individual ash-free dry weight (AFDW) of prey taxa identified in juvenile common sole (Solea solea) digestive tracts. Individual prey masses (mg ind⁻¹) were estimated using the {Btrait} package (v1.0.1) and Gogina et al. (2022). The number of reference taxa used for mass estimation is indicated by n. Match quality describes the level of supporting evidence for each estimate, while shared rank indicates the lowest taxonomic rank shared between the observed prey taxon and the reference taxa. Median, Q25 and Q75 represent the estimated median individual AFDW and its 25th and 75th percentiles, respectively.", fig.show='hold'}
+```{r tbl-prey-masses, tab.id="tab-prey-masses", tab.cap="Taxonomic matching, data sources, and estimated individual ash-free dry weight (AFDW) of prey taxa identified in juvenile common sole (Solea solea) digestive tracts. Individual prey masses (mg ind⁻¹) were estimated using the {Btrait} package (v1.0.1) and Gogina et al. (2022). The number of reference taxa used for mass estimation is indicated by n. Match quality describes the level of supporting evidence for each estimate, while shared rank indicates the lowest taxonomic rank shared between the observed prey taxon and the reference taxa. Median, Q25 and Q75 represent the estimated median individual AFDW and its 25th and 75th percentiles, respectively.", fig.show='hold'}
 mass_stats_matches |> 
   mutate(
     median = round(mass_median, digits = 2),
@@ -427,12 +506,34 @@ mass_stats_matches |>
          "Match quality" = mass_match_quality,
          "Shared rank" = shared_rank) |> 
   select(-c(mass_iqr, mass_iqr_rel, mass_median, mass_minq25, mass_maxq75, priority, n_candidates, taxonomic_matching_quality)) |> 
+
 flextable() |>
-  autofit() |>
-  bold(part = "header")
+  theme_booktabs() |>
+  set_table_properties(
+    layout = "fixed",
+    opts_word = list(
+      split = TRUE,
+      repeat_headers = TRUE
+    )
+  ) |>
+  width(j = "Observed species", width = 1.60) |>
+  width(j = "n", width = 0.35) |>
+  width(j = "source", width = 2.30) |>
+  width(j = "Match quality", width = 1.25) |>
+  width(j = "Shared rank", width = 0.90) |>
+  width(j = "median", width = 0.65) |>
+  width(j = "Q25", width = 0.65) |>
+  width(j = "Q75", width = 0.65) |>
+  fontsize(size = 8, part = "all") |>
+  padding(padding = 2, part = "all") |>
+  bold(part = "header") |>
+  italic(j = "Observed species", part = "body") |>
+  paginate(init = FALSE, hdr_ftr = TRUE)
+
 ```
+<!---BLOCK_LANDSCAPE_STOP--->
 
-
+<!---BLOCK_LANDSCAPE_START--->
 ## Assessment of taxonomic correspondence between dietary prey and chemically analysed taxa
 
 To evaluate the taxonomic representativeness of the benthic organisms analysed for contaminants, prey taxa identified in the digestive tracts of age-0 common sole (Solea solea) were compared with those included in the chemical dataset. Taxonomic correspondence was assessed using the recorded taxon names. Prey were classified as directly matched when an identical taxonomic designation was present in both datasets, or as unmatched when no identical designation was available. Because digestion frequently prevented prey identification to species level, identical taxonomic designations were not necessarily equivalent to species-level matches. Conversely, the absence of a direct match did not necessarily indicate that the corresponding organisms were absent from the chemically analysed assemblage.
@@ -441,23 +542,28 @@ For each dietary taxon, numerical contribution was calculated as its abundance r
 
 This analysis was intended to characterise the degree of taxonomic correspondence underlying the phylum-level reconstruction of dietary contaminant concentrations, rather than to establish direct chemical representativeness of individual prey organisms.
 
-```{r tab.id="tab-diet-matching", tab.cap="Taxonomic correspondence between prey identified in digestive tracts of age-0 common sole (Solea solea) and benthic taxa analysed for contaminants in the Seine estuary. Dietary taxa are classified according to the availability of an identical taxonomic designation in the chemical dataset (Direct) or the absence of such a designation (No specific match). Numerical and biomass contributions are expressed as percentages of the total reconstructed diet. Biomass proportions were calculated using literature-derived median individual prey masses, including the reference siphonal mass correction for bivalves. The absence of an identical taxonomic designation does not necessarily indicate that the prey taxon was absent from the chemical dataset, as some dietary organisms could only be identified at higher taxonomic ranks.", fig.show='hold'}
+```{r tbl-diet-matching, tab.id="tab-diet-matching", tab.cap="Taxonomic correspondence between prey identified in digestive tracts of age-0 common sole (Solea solea) and benthic taxa analysed for contaminants in the Seine estuary. Dietary taxa are classified according to the availability of an identical taxonomic designation in the chemical dataset (Direct) or the absence of such a designation (No specific match). Numerical and biomass contributions are expressed as percentages of the total reconstructed diet. Biomass proportions were calculated using literature-derived median individual prey masses, including the reference siphonal mass correction for bivalves. The absence of an identical taxonomic designation does not necessarily indicate that the prey taxon was absent from the chemical dataset, as some dietary organisms could only be identified at higher taxonomic ranks.", fig.show='hold'}
 coverage_phylum |> 
 flextable() |>
-  autofit() |>
-  bold(part = "header")
+  flextable::set_table_properties(layout = "fixed") |> 
+  bold(part = "header") |>
+  flextable::set_table_properties(opts_word = list(split = TRUE, repeat_headers = TRUE)) |>
+  flextable::fontsize(size = 8, part = "all") |>
+  flextable::padding(padding = 2, part = "all") |>
+  flextable::paginate(init = FALSE, hdr_ftr = TRUE)
 ```
+<!---BLOCK_LANDSCAPE_STOP--->
 
 ## Sensitivity to the bivalve correction factor
 
-```{r fig.cap="Sensitivity of dietary composition to the bivalve correction factor. Sensitivity of estimated prey biomass contributions to the assumed proportion of bivalve body mass represented by ingested siphonal tissues. The correction factor was varied from 2% to 5% of estimated individual bivalve mass. Lines represent the biomass-weighted dietary contribution of each prey phylum. The vertical dashed line indicates the reference correction factor of 3.75% used in the main analyses.", fig.show='hold'}
+```{r fig-siphon-diet, fig.cap="Sensitivity of dietary composition to the bivalve correction factor. Sensitivity of estimated prey biomass contributions to the assumed proportion of bivalve body mass represented by ingested siphonal tissues. The correction factor was varied from 2% to 5% of estimated individual bivalve mass. Lines represent the biomass-weighted dietary contribution of each prey phylum. The vertical dashed line indicates the reference correction factor of 3.75% used in the main analyses.", fig.show='hold'}
 knitr::include_graphics(
   "../manuscript/figures/Fig.S1_diet_siphon_sensitivity.png"
   )
 ```
 
 
-```{r fig.cap="Sensitivity of biomass-weighted biomagnification factor (BMF) estimates to the assumed proportion of bivalve siphon mass in age-0 common sole (Solea solea) from the Seine estuary. The correction factor applied to estimated individual bivalve biomass was varied from 2% to 5%, while all other dietary parameters were held constant. Lines connect estimates for individual compounds, with HBCDD isomers labelled separately to facilitate interpretation. The vertical dotted line indicates the reference correction factor of 3.75% used in the main analyses, while the horizontal dashed line represents BMF = 1. BMF estimates were calculated using gamma-based MLE imputation, with LOQ/2 fallback when necessary, and are displayed on a logarithmic scale, with independent y-axis scales for each contaminant family.", fig.show='hold'}
+```{r fig-siphon-bmf, fig.cap="Sensitivity of biomass-weighted biomagnification factor (BMF) estimates to the assumed proportion of bivalve siphon mass in age-0 common sole (Solea solea) from the Seine estuary. The correction factor applied to estimated individual bivalve biomass was varied from 2% to 5%, while all other dietary parameters were held constant. Lines connect estimates for individual compounds, with HBCDD isomers labelled separately to facilitate interpretation. The vertical dotted line indicates the reference correction factor of 3.75% used in the main analyses, while the horizontal dashed line represents BMF = 1. BMF estimates were calculated using gamma-based MLE imputation, with LOQ/2 fallback when necessary, and are displayed on a logarithmic scale, with independent y-axis scales for each contaminant family.", fig.show='hold'}
 knitr::include_graphics(
   "../manuscript/figures/Fig.S3_siphon_sensitivity_bmf.png"
   )
@@ -465,14 +571,14 @@ knitr::include_graphics(
 
 ## Sensitivity of BMF estimates to numerical versus biomass weighting.
 
-```{r fig.cap="Effect of numerical versus biomass weighting on BMF estimates. Relative differences between biomass-weighted and numerically weighted biomagnification factor (BMF) estimates for individual PCB congeners, HBCDD isomers, and PFAS compounds. Differences are expressed as percentages relative to numerically weighted BMFs, calculated as 100 × (BMF_biomass / BMF_numeric − 1). Positive values indicate higher BMFs under biomass weighting, whereas negative values indicate higher BMFs under numerical weighting. Results correspond to the gamma-MLE scenario for censored concentrations.", fig.show='hold'}
+```{r fig-diet-weighting-delta, fig.cap="Effect of numerical versus biomass weighting on BMF estimates. Relative differences between biomass-weighted and numerically weighted biomagnification factor (BMF) estimates for individual PCB congeners, HBCDD isomers, and PFAS compounds. Differences are expressed as percentages relative to numerically weighted BMFs, calculated as 100 × (BMF_biomass / BMF_numeric − 1). Positive values indicate higher BMFs under biomass weighting, whereas negative values indicate higher BMFs under numerical weighting. Results correspond to the gamma-MLE scenario for censored concentrations.", fig.show='hold'}
 knitr::include_graphics(
   "../manuscript/figures/Fig.S5_diet_weighting_delta_pct.png"
   )
 ```
 
 
-```{r fig.cap="Sensitivity to numerical versus biomass weighting. Compound-specific sensitivity of diet-based biomagnification factor (BMF) estimates to numerical versus biomass-based dietary weighting. Sensitivity was calculated as the median absolute log₂ ratio between biomass-weighted and numerically weighted BMF estimates. Results correspond to the gamma-based MLE scenario for censored concentrations, with LOQ/2 substitution used when distribution fitting was not feasible. Higher sensitivity values indicate greater differences between weighting approaches, irrespective of their direction. Multiplicative differences, calculated as 2 raised to the sensitivity value, are indicated alongside the bars. Results are presented separately for PCB congeners, HBCDD isomers, and PFAS compounds.", fig.show='hold'}
+```{r fig-diet-weighting-sensitivity, fig.cap="Sensitivity to numerical versus biomass weighting. Compound-specific sensitivity of diet-based biomagnification factor (BMF) estimates to numerical versus biomass-based dietary weighting. Sensitivity was calculated as the median absolute log₂ ratio between biomass-weighted and numerically weighted BMF estimates. Results correspond to the gamma-based MLE scenario for censored concentrations, with LOQ/2 substitution used when distribution fitting was not feasible. Higher sensitivity values indicate greater differences between weighting approaches, irrespective of their direction. Multiplicative differences, calculated as 2 raised to the sensitivity value, are indicated alongside the bars. Results are presented separately for PCB congeners, HBCDD isomers, and PFAS compounds.", fig.show='hold'}
 knitr::include_graphics(
   "../manuscript/figures/Fig.S6_numeric_biomass_sensitivity.png"
   )
@@ -486,16 +592,20 @@ The censoring audit documented compound- and biological-group-specific censoring
 
 Of the 480 retained compound-by-biological-group combinations, 79 contained at least one censored observation. Gamma-based MLE fitting was successful for 36 combinations, whereas 43 required LOQ/2 fallback (21 with fewer than three observations and 22 with fewer than two uncensored measurements). The complete group-specific censoring and imputation audit, including model fitting diagnostics and imputed values, is provided in Supplementary Dataset S1.
 
-```{r tab.id="tab-censor-audit", tab-censor-audit, tab.cap="Compound-level left-censoring summary for autumn age-0 soles and benthic prey, including the documented HBCDD exception to the 80% exclusion criterion."}
+```{r tbl-censor-audit, tab.id="tab-censor-audit", tab.cap="Compound-level left-censoring summary for autumn age-0 soles and benthic prey, including the documented HBCDD exception to the 80% exclusion criterion."}
 source_table <- readr::read_csv("tables/Table_Sx_Censoring_summary.csv", show_col_types = FALSE)
 flextable::flextable(source_table) |>
   flextable::theme_booktabs() |>
-  flextable::autofit()
+  flextable::set_table_properties(layout = "fixed") |> 
+  flextable::set_table_properties(opts_word = list(split = TRUE, repeat_headers = TRUE)) |>
+    fontsize(size = 8, part = "all") |>
+  padding(padding = 2, part = "all") |>
+  flextable::paginate(init = FALSE, hdr_ftr = TRUE)
 ```
 
 ## Sensitivity eligibility
 
-```{r, tab.id="tab-sensitivity-eligibility", tab-sensitivity-eligibility, tab.cap="Eligibility of PCB congeners, HBCDD isomers and PFAS compounds for methodological sensitivity analyses based on log₂-ratios and zero-compatible bounded contrasts. The table reports the total number of retained compounds per chemical family and the numbers eligible or ineligible for each sensitivity metric. Log₂-based metrics require strictly positive BMF values across all 12 methodological combinations, whereas bounded contrasts allow finite, non-negative BMF values, including zero."}
+```{r tbl-sensitivity-eligibility, tab.id="tab-sensitivity-eligibility", tab.cap="Eligibility of PCB congeners, HBCDD isomers and PFAS compounds for methodological sensitivity analyses based on log₂-ratios and zero-compatible bounded contrasts. The table reports the total number of retained compounds per chemical family and the numbers eligible or ineligible for each sensitivity metric. Log₂-based metrics require strictly positive BMF values across all 12 methodological combinations, whereas bounded contrasts allow finite, non-negative BMF values, including zero."}
 
 sensitivity_family_eligibility <- read_csv(
   "tables/Table_Sx_Sensitivity_eligibility.csv",
@@ -512,7 +622,7 @@ sensitivity_family_eligibility |>
   ) |>
   flextable() |>
   theme_booktabs() |>
-  autofit()
+  flextable::set_table_properties(layout = "fixed")
 ```
 
 
@@ -522,16 +632,28 @@ knitr::include_graphics(
 )
 ```
 
+<!---BLOCK_LANDSCAPE_START--->
 ## HBCDD-specific censoring and BMF bounds
 
-```{r tab.id="tab-hbcdd-bounds", tab-hbcdd-bounds, tab.cap="HBCDD isomer-specific quantification frequencies, biomass-weighted field BMF estimates under four censoring treatments, and censoring-derived analytical bounds. Analytical bounds combine minimum predator and maximum diet concentrations for the lower ratio, and maximum predator and minimum diet concentrations for the upper ratio; they are not confidence intervals. The β- and γ-HBCDD estimates remain exploratory."}
+```{r tbl-hbcdd-bounds, tab.id="tab-hbcdd-bounds", tab.cap="HBCDD isomer-specific quantification frequencies, biomass-weighted field BMF estimates under four censoring treatments, and censoring-derived analytical bounds. Analytical bounds combine minimum predator and maximum diet concentrations for the lower ratio, and maximum predator and minimum diet concentrations for the upper ratio; they are not confidence intervals. The β- and γ-HBCDD estimates remain exploratory."}
 hbcdd_table <- readr::read_csv("tables/Table_Sx_HBCDD_isomers_biomass.csv", show_col_types = FALSE)
 hbcdd_table |>
   mutate(across(where(is.numeric), ~ round(.x, 3))) |>
   flextable::flextable() |>
-  flextable::theme_booktabs() |>
-  flextable::autofit()
+  set_header_labels(
+    `Soles quantified (n/N)` = "Sole n/N",
+    `Prey quantified (n/N)` = "Prey n/N",
+    `BMF gamma-MLE` = "BMF MLE",
+    `Analytical lower bound` = "Lower bound",
+    `Analytical upper bound` = "Upper bound",
+    `Threshold interpretation` = "BMF vs 1"
+  ) |>
+  autofit() |>
+  fit_columns(max_width = 8.8) |>
+  theme_booktabs() |>
+  fontsize(size = 7.5, part = "all")
 ```
+<!---BLOCK_LANDSCAPE_STOP--->
 
 ## HBCDD quantification frequencies
 
@@ -545,28 +667,32 @@ knitr::include_graphics("figures/Fig.S_HBCDD_detection_rates.png")
 knitr::include_graphics("figures/Fig.S_HBCDD_BMF_analytical_bounds.png")
 ```
 
-The preceding overview places each BMF range relative to unity. Because the analytical bounds for all three HBCDD isomers are much smaller than one, their horizontal segments are difficult to distinguish on that scale. The complementary zoomed figure below displays the **same calculations**, with separate horizontal scales for each isomer. The intervals are derived from the minimum sole concentration divided by the maximum reconstructed dietary concentration, and the maximum sole concentration divided by the minimum reconstructed dietary concentration. They describe analytical censoring only, not confidence intervals. The reference values and exact bounds are provided in Supplementary Table Sx.
+Supplementary Fig. S\@ref(fig:fig-hbcdd-bounds) places each BMF range relative to unity. Because the analytical bounds for all three HBCDD isomers are much smaller than one, their horizontal segments are difficult to distinguish on that scale. Supplementary Fig. S\@ref(fig:fig-hbcdd-bounds-zoom) displays the **same calculations**, with separate horizontal scales for each isomer. The intervals are derived from the minimum sole concentration divided by the maximum reconstructed dietary concentration, and the maximum sole concentration divided by the minimum reconstructed dietary concentration. They describe analytical censoring only, not confidence intervals. The reference values and exact bounds are provided in Supplementary Table S\@ref(tab:tab-hbcdd-bounds).
 
-```{r fig-hbcdd-bounds-zoom, fig.cap="Zoomed representation of censoring-derived analytical BMF bounds for α-, β- and γ-HBCDD under equal, numerical and biomass-based dietary weighting. Points represent gamma-MLE estimates, including LOQ/2 fallback where model fitting was not feasible. Horizontal segments represent the range between the lower BMF bound (minimum predator concentration divided by maximum reconstructed dietary concentration) and the upper BMF bound (maximum predator concentration divided by minimum reconstructed dietary concentration). The horizontal scale differs among isomers to improve the visibility of these ranges; segment lengths should therefore not be compared visually across panels. The corresponding numerical values are reported in Supplementary Table Sx. Analytical bounds do not represent statistical confidence intervals.", echo=FALSE, out.width='100%'}
+```{r fig-hbcdd-bounds-zoom, fig.cap="Zoomed representation of censoring-derived analytical BMF bounds for α-, β- and γ-HBCDD under equal, numerical and biomass-based dietary weighting. Points represent gamma-MLE estimates, including LOQ/2 fallback where model fitting was not feasible. Horizontal segments represent the range between the lower BMF bound (minimum predator concentration divided by maximum reconstructed dietary concentration) and the upper BMF bound (maximum predator concentration divided by minimum reconstructed dietary concentration). The horizontal scale differs among isomers to improve the visibility of these ranges; segment lengths should therefore not be compared visually across panels. The corresponding numerical values are reported in the HBCDD bounds table. Analytical bounds do not represent statistical confidence intervals.", echo=FALSE, out.width='100%'}
 knitr::include_graphics("figures/Fig.S_HBCDD_BMF_analytical_bounds_ZOOM.png")
 ```
 
 ## Prey mass Q25–median–Q75 propagation to BMFs
 
-```{r tab.id="tab-bmf-mass", tab-bmf-mass, tab.cap="Sensitivity of biomass-weighted field-based normalised predator-to-diet concentration ratios to Q25, median and Q75 individual prey-mass estimates. Minimum and maximum BMF values were calculated across the three dietary reconstructions, without assuming a monotonic relationship between prey masses and BMFs. Multiplicative sensitivity ranges and changes in classification relative to unity are also reported. These values quantify deterministic sensitivity to alternative mass assumptions and should not be interpreted as confidence or credible intervals."}
+```{r tbl-bmf-mass, tab.id="tab-bmf-mass", tab.cap="Sensitivity of biomass-weighted field-based normalised predator-to-diet concentration ratios to Q25, median and Q75 individual prey-mass estimates. Minimum and maximum BMF values were calculated across the three dietary reconstructions, without assuming a monotonic relationship between prey masses and BMFs. Multiplicative sensitivity ranges and changes in classification relative to unity are also reported. These values quantify deterministic sensitivity to alternative mass assumptions and should not be interpreted as confidence or credible intervals."}
 mass_table <- readr::read_csv("tables/Table_Sx_BMF_mass_quantiles.csv", show_col_types = FALSE)
 mass_table |>
   mutate(across(where(is.numeric), ~ round(.x, 3))) |>
   flextable::flextable() |>
   flextable::theme_booktabs() |>
-  flextable::autofit()
+  flextable::set_table_properties(layout = "fixed") |> 
+  flextable::set_table_properties(opts_word = list(split = TRUE, repeat_headers = TRUE)) |>
+  flextable::fontsize(size = 8, part = "all") |>
+  flextable::padding(padding = 2, part = "all") |>
+  flextable::paginate(init = FALSE, hdr_ftr = TRUE)
 ```
 
 ## Leave-one-chemically-analysed-prey-species-out sensitivity
 
 To evaluate the influence of the chemical characterisation of individual benthic prey species on the reconstructed dietary denominator, one chemically analysed prey species was removed at a time. For each compound, species-level chemical concentrations were re-aggregated within phyla and biomass-weighted predator-to-diet concentration ratios were recalculated, holding the reference gamma-MLE censoring scenario and the dietary biomass weights fixed. Where removal eliminated the only chemically characterised species within a phylum, that phylum was omitted from the denominator and weights were renormalised over the remaining phyla. This analysis assesses the leverage of the analysed prey species on the chemical denominator, **not** uncertainty concerning the identity or abundance of prey actually consumed.
 
-```{r tab-loo-family, tab.id="tab-loo-family", tab.cap="Leave-one-chemically-analysed-prey-species-out sensitivity of biomass-weighted field-based normalised predator-to-diet concentration ratios, by contaminant family. A removal test is a compound-by-prey-species deletion. Classification changes refer to crossings of a ratio of one. Counts of affected compounds are distinct compounds and are not equivalent to numbers of removal tests."}
+```{r tbl-loo-family, tab.id="tab-loo-family", tab.cap="Leave-one-chemically-analysed-prey-species-out sensitivity of biomass-weighted field-based normalised predator-to-diet concentration ratios, by contaminant family. A removal test is a compound-by-prey-species deletion. Classification changes refer to crossings of a ratio of one. Counts of affected compounds are distinct compounds and are not equivalent to numbers of removal tests."}
 loo_family <- readr::read_csv("tables/Table_Sx_LOO_by_family.csv", show_col_types = FALSE)
 loo_family |>
   dplyr::select(
@@ -579,7 +705,7 @@ loo_family |>
   ) |>
   flextable::flextable() |>
   flextable::theme_booktabs() |>
-  flextable::autofit()
+  flextable::set_table_properties(layout = "fixed")
 ```
 
 ```{r fig-loo-species, fig.cap="Influence of individual chemically characterised benthic prey species on biomass-weighted field-based normalised predator-to-diet concentration ratios. Bars indicate the number of compound-by-species deletion tests that changed the classification relative to a concentration ratio of one. This leave-one-out analysis addresses the influence of measured prey chemistry, not uncertainty in the identity of prey consumed.", out.width="95%"}
@@ -590,7 +716,7 @@ knitr::include_graphics("figures/Fig.S_LOO_species_threshold_changes.png")
 knitr::include_graphics("figures/Fig.S_LOO_compound_max_change.png")
 ```
 
-```{r tab-loo-phylum, tab.id="tab-loo-phylum", tab.cap="Deletion tests in which removing one chemically analysed prey species also removed the final chemical representative of an entire phylum. The dietary denominator was then calculated using the remaining chemically represented phyla, with the original dietary weights renormalised; phylum removal does not imply its absence from juvenile sole stomach contents."}
+```{r tbl-loo-phylum, tab.id="tab-loo-phylum", tab.cap="Deletion tests in which removing one chemically analysed prey species also removed the final chemical representative of an entire phylum. The dietary denominator was then calculated using the remaining chemically represented phyla, with the original dietary weights renormalised; phylum removal does not imply its absence from juvenile sole stomach contents."}
 loo_phylum <- readr::read_csv("tables/Table_Sx_LOO_phylum_drops.csv", show_col_types = FALSE)
 loo_phylum |>
   dplyr::mutate(dplyr::across(c(bmf_reference, bmf_without_species),
@@ -600,7 +726,9 @@ loo_phylum |>
                 bmf_reference, bmf_without_species, delta_pct, threshold_change) |>
   flextable::flextable() |>
   flextable::theme_booktabs() |>
-  flextable::autofit()
+  flextable::fontsize(size = 8, part = "all") |>
+  flextable::padding(padding = 2, part = "all") |>
+  flextable::set_table_properties(layout = "fixed")
 ```
 
 Full compound-level and prey-species summaries are available in `Table_Sx_LOO_by_compound.csv` and `Table_Sx_LOO_species_influence.csv`, respectively, in the supplementary data package.
@@ -613,7 +741,7 @@ knitr::include_graphics("figures/Fig.S_mass_quantile_BMF_ranges.png")
 
 ## Threshold-sensitive compounds under prey-mass assumptions
 
-```{r fig-bmf-mass-crossings, fig.cap="Variation in biomass-weighted field-based normalised predator-to-diet concentration ratios across Q25, median and Q75 individual prey-mass scenarios for compounds whose estimated ratios cross unity. Each scenario applies the corresponding mass estimates simultaneously across prey taxa. The dashed horizontal line indicates a concentration ratio of one. These scenario-based differences do not represent statistical confidence or credible intervals."}
+```{r fig-bmf-mass-crossings, fig.cap="Variation in biomass-weighted field-based normalised predator-to-diet concentration ratios across Q25, median and Q75 individual prey-mass scenarios for compounds whose estimated ratios cross unity. Each scenario applies the corresponding mass estimates simultaneously across prey taxa. The dashed horizontal line indicates a concentration ratio of one. These scenario-based differences do not represent statistical confidence or credible intervals.", eval=file.exists("figures/Fig.S_mass_quantile_threshold_sensitive.png")}
 path <- "figures/Fig.S_mass_quantile_threshold_sensitive.png"
-if (file.exists(path)) knitr::include_graphics(path) else cat("No threshold-crossing compounds in the current run.")
+knitr::include_graphics(path)
 ```
