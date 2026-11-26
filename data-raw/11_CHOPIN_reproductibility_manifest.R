@@ -27,7 +27,7 @@ hashes <- tibble::tibble(
   sha256 = vapply(
     files_to_hash,
     function(path) {
-      digest::digest(file = path, algo = "sha256")
+      digest::digest(object = path, algo = "sha256", file = TRUE)
     },
     character(1)
   )

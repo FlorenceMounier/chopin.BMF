@@ -1,0 +1,83 @@
+# Relecture éditoriale et scientifique ciblée — Article CHOPIN
+
+**Base examinée :** `Article(1).Rmd` transmis le 26 novembre 2026.
+
+**Livrable :** `Article_revise_compact.Rmd`, version intégrale réécrite du manuscrit principal. Aucun fichier du Supplementary ni script d'analyse n'a été modifié.
+
+## 1. Diagnostic de la version soumise
+
+Le manuscrit est scientifiquement plus solide que les versions antérieures, mais ses informations méthodologiques et ses limites étaient parfois répétées dans plusieurs sections. Les principales difficultés éditoriales constatées étaient :
+
+1. **Introduction très développée :** répétitions sur les habitats de nourricerie, les contaminants et les définitions de BMF/TMF avant l'énoncé de la question de recherche.
+2. **Methods trop descriptives à certains endroits :** plusieurs mises en garde non nécessaires à la reproductibilité y apparaissaient aussi dans la Discussion ; deux paragraphes sur la sensibilité saisonnière comportaient l'un des résultats chiffrés (1/19 PCB en automne, 16/19 au printemps), qui relève des Results.
+3. **Résultats redondants :** plusieurs reformulations de la même hiérarchie famille chimique / type de pondération, ainsi que répétition de la distinction entre ratio opérationnel et effet trophique.
+4. **Discussion trop longue :** reprise multiple des limites de l'analyse Q25–médiane–Q75, de la reconstruction physique du mélange alimentaire et des hypothèses de bioisomérisation HBCDD.
+5. **Conclusion répétitive :** l'effet des méthodes, les bornes HBCDD et les limites d'interprétation sont reformulés plusieurs fois.
+
+## 2. Modifications apportées au Rmd
+
+### Architecture
+
+- Introduction resserrée autour du problème méthodologique et des objectifs.
+- Methods maintenues avec les éléments reproductibles : échantillonnage et données, bases de normalisation, critères de censure, MLE/fallback, masses des proies et correction siphon, équations des BMF, analyses Q25/50/75, leave-one-out, saison, bornes HBCDD, métriques de sensibilité logarithmique et compatible avec les zéros.
+- Résultats saisonniers déplacés des Methods dans les Results ; le protocole saisonnier est maintenu dans les Methods.
+- Discussion organisée en trois volets : **reconstruction alimentaire et couverture chimique**, **spécificités des composés et censure**, **interprétation, limites et priorités d'échantillonnage**.
+- Conclusion ramenée à deux paragraphes, sans répéter les médianes de familles déjà présentées en Results.
+
+### Équations et interprétation
+
+- Représentation des proportions numériques et pondérées en biomasse avec des sommes définies par phylum et taxon.
+- Expression explicite du BMF proie-spécifique et du BMF fondé sur un dénominateur alimentaire reconstruit.
+- Définition des extrema de sensibilité aux masses comme minima/maxima **des trois scénarios**, pas automatiquement Q25/Q75.
+- Bornes HBCDD définies séparément de ces extrema et **non** assimilées à des intervalles de confiance.
+- Indice complémentaire `D` maintenu pour les ratios nuls, sans ajouter de pseudo-constante.
+- Absence de preuve de bioisomérisation chez *Solea solea* maintenue explicitement.
+- Une seule définition complète du statut de « ratio opérationnel » dans les Methods, puis les conséquences biologiques dans les limitations.
+
+## 3. Taille du texte
+
+Comptage indicatif des mots, hors YAML, chunks des figures et légendes de figures, références bibliographiques et autres éléments non narratifs :
+
+| Section | Source | Version proposée | Réduction |
+|---|---:|---:|---:|
+| Abstract | 351 | 263 | 25 % |
+| Introduction | 1 105 | 550 | 50 % |
+| Materials and methods | 3 638 | 1 886 | 48 % |
+| Results | 1 701 | 1 261 | 26 % |
+| Discussion | 3 185 | 1 594 | 50 % |
+| Conclusion | 325 | 163 | 50 % |
+| **Corps Introduction–Conclusion** | **9 954** | **5 454** | **45 %** |
+
+Les décomptes sont des estimations fondées sur le texte Rmd ; ils diffèrent légèrement de ceux obtenus à partir du Word généré, qui intègre certains champs et légendes.
+
+La longueur révisée laisse davantage de place au résumé, aux légendes, aux références et aux exigences de format de la revue. Il faudra compter les mots dans le Word final pour connaître la longueur déclarable à la revue.
+
+## 4. Intégrité documentaire contrôlée
+
+- **51 clés bibliographiques distinctes sur 51 sont conservées**. Certaines occurrences répétées ont été supprimées, mais aucune référence présente dans l'original ne disparaît entièrement de la nouvelle version.
+- Les cinq chunks de figures principales (`fig-map`, `fig-prey-contributions`, `fig-bmfs-diet`, `fig-bmfs-censor`, `fig-sensitivity`) ont été préservés sans modification de code ni de légende.
+- Les **19 références SI distinctes** utilisées via `si_ref()` sont conservées ; elles seront actualisées à la compilation si `SI_crossrefs.R` et le SI correspondant sont présents.
+- Le YAML du manuscrit, les affiliations, le style CSL et le format `officedown::rdocx_document` sont conservés.
+- Le document a passé un test de parsing Markdown/Pandoc avec prise en charge de MathJax. **Aucun Knit R/officedown et aucun recalcul statistique n'ont été possibles dans cet environnement** : il faudra tester la compilation dans le projet R original.
+
+## 5. Points à vérifier avant soumission
+
+### Points prioritaires
+
+1. **Références de données** : le manuscrit contient toujours `Mounier et al. (in preparation)` et `chopin.data` version `0.0.1`. Vérifier le statut de la citation du data paper, le DOI ou l'accès public et la version effective du package.
+2. **Tableau saisonnier du SI** : le nouveau Rmd conserve le renvoi `si_ref("tab-prey-season", "tab")` ; vérifier que cette étiquette existe dans la dernière version effectivement compilée de `Article_SI.Rmd`.
+3. **Chiffres du corps de l'article** : contrôler avec les sorties régénérées les valeurs de 32 composés retenus, 448 analyses leave-one-out, 25 changements de classe, 3 changements par masses, et 16/19 PCB en sous-ensemble printemps. Les chiffres ont été **repris de l'Article fourni**, non recalculés.
+4. **Prise en charge de la censure** : confirmer que les conditions de gamma-MLE/LOQ/2 fallback décrites correspondent bien à la dernière version des scripts, notamment la règle de deux valeurs quantifiées.
+5. **Dénominateur alimentaire** : confirmer que la renormalisation des poids parmi les phyla chimiquement représentés reproduit exactement la fonction de calcul utilisée pour les BMF.
+
+### Points secondaires
+
+6. Corriger après vérification l'adresse de l'affiliation LBCO dans le YAML (`Nantes, France 76600, France` semble avoir une duplication ou un code postal incohérent).
+7. Relire les expressions anglaises selon les consignes de la revue : `normalised`/`normalization`, choix de `left-censored`, *field-based BMF estimate*.
+8. Vérifier le rendu Word des équations et la mise à jour de la bibliographie et des renvois. L'absence de R dans l'environnement n'a pas permis de valider l'intégralité de la chaîne `officedown`.
+
+## 6. Avis de reviewer
+
+**Évaluation scientifique :** le message central est défendable, à condition de garder la distinction entre ratios opérationnels et biomagnification démontrée, et de signaler clairement le caractère exploratoire des analyses saisonnières et des isomères HBCDD fortement censurés.
+
+**Évaluation éditoriale :** la nouvelle version offre un format de Full Paper nettement plus lisible, en concentrant les résultats chiffrés dans les Results et les mécanismes/limites dans la Discussion. Le principal effort restant avant soumission est une vérification de concordance avec les scripts et le SI final, plutôt qu'une nouvelle réorganisation globale de l'Article.

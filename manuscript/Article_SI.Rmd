@@ -320,7 +320,7 @@ ft_contaminants
 
 All stomach-content samples and juvenile sole pools used for chemical analyses were collected in autumn, whereas benthic prey samples used for chemical analyses originated from both spring and autumn campaigns. Both seasons were included for benthic chemistry to improve sample availability and taxonomic coverage.
 
-Supplementary Table S2 summarises the sampling inventory by analysis type and season, including the availability of sampling dates and the chemical families analysed. Exact sampling dates were available for sole chemistry and stomach-content samples, but not for individual benthic chemistry records. Consequently, the inventory does not establish direct temporal matching between predator and prey samples.
+Supplementary Table \@ref(tab:tab-sampling-inventory) summarises the sampling inventory by analysis type and season, including the availability of sampling dates and the chemical families analysed. Exact sampling dates were available for sole chemistry and stomach-content samples, but not for individual benthic chemistry records. Consequently, the inventory does not establish direct temporal matching between predator and prey samples.
 
 The complete sample-level inventory, including individual sample identifiers and available metadata, is provided as a separate CSV file in the accompanying data and code repository.
 
@@ -405,7 +405,6 @@ flextable(inventory_summary) |>
 ```
 
 *Note.* Counts are numbers of distinct source sample identifiers, not necessarily independent biological replicates. Sole chemical samples are pooled samples, whereas stomach-content identifiers refer to the diet observations. Some benthic chemistry identifiers correspond to composite pools. All 50 benthic chemistry identifiers lack exact dates in the supplied inventory. Site or sector information is not provided in this CSV and therefore cannot be summarised without an additional source.
-
 <!---BLOCK_LANDSCAPE_STOP--->
 
 
@@ -491,7 +490,6 @@ knitr::include_graphics(
 The HBCDD censoring treatments and analytical bounds are reported in Supplementary Table S\@ref(tab:tab-hbcdd-bounds).
 
 <!---BLOCK_LANDSCAPE_START--->
-
 ## Best available taxonomic matching of prey in stomach content
 
 ```{r tbl-prey-masses, tab.id="tab-prey-masses", tab.cap="Taxonomic matching, data sources, and estimated individual ash-free dry weight (AFDW) of prey taxa identified in juvenile common sole (Solea solea) digestive tracts. Individual prey masses (mg ind⁻¹) were estimated using the {Btrait} package (v1.0.1) and Gogina et al. (2022). The number of reference taxa used for mass estimation is indicated by n. Match quality describes the level of supporting evidence for each estimate, while shared rank indicates the lowest taxonomic rank shared between the observed prey taxon and the reference taxa. Median, Q25 and Q75 represent the estimated median individual AFDW and its 25th and 75th percentiles, respectively.", fig.show='hold'}
@@ -533,7 +531,6 @@ flextable() |>
 ```
 <!---BLOCK_LANDSCAPE_STOP--->
 
-<!---BLOCK_LANDSCAPE_START--->
 ## Assessment of taxonomic correspondence between dietary prey and chemically analysed taxa
 
 To evaluate the taxonomic representativeness of the benthic organisms analysed for contaminants, prey taxa identified in the digestive tracts of age-0 common sole (Solea solea) were compared with those included in the chemical dataset. Taxonomic correspondence was assessed using the recorded taxon names. Prey were classified as directly matched when an identical taxonomic designation was present in both datasets, or as unmatched when no identical designation was available. Because digestion frequently prevented prey identification to species level, identical taxonomic designations were not necessarily equivalent to species-level matches. Conversely, the absence of a direct match did not necessarily indicate that the corresponding organisms were absent from the chemically analysed assemblage.
@@ -552,7 +549,7 @@ flextable() |>
   flextable::padding(padding = 2, part = "all") |>
   flextable::paginate(init = FALSE, hdr_ftr = TRUE)
 ```
-<!---BLOCK_LANDSCAPE_STOP--->
+
 
 ## Sensitivity to the bivalve correction factor
 
@@ -732,6 +729,80 @@ loo_phylum |>
 ```
 
 Full compound-level and prey-species summaries are available in `Table_Sx_LOO_by_compound.csv` and `Table_Sx_LOO_species_influence.csv`, respectively, in the supplementary data package.
+
+## Exploratory sensitivity to season-restricted prey chemistry
+
+To explore the influence of the temporal coverage of prey chemistry on reconstructed dietary concentrations, field-based BMF estimates were recalculated using spring-only and autumn-only benthic chemical observations and compared with the reference estimates obtained by pooling both seasons. Predator concentrations, dietary biomass weights and the gamma-MLE imputations estimated from the complete dataset were held fixed.
+
+These comparisons constitute descriptive sensitivity scenarios rather than a formal assessment of seasonal effects, because sampling effort, chemically characterised prey species and taxonomic coverage differed between the two seasonal subsets.
+
+
+```{r tbl-prey-season, tab.id="tab-prey-season", tab.cap="Exploratory sensitivity of biomass-weighted field-based BMF estimates to the seasonal subset of benthic prey chemistry. Changes refer to classification relative to a BMF of one compared with the pooled-season reference. Prey species and analytical pool counts are compound-specific and may vary within a family. Dietary weight coverage represents the sum of reference biomass weights for chemically represented phyla. All comparisons use the full-dataset gamma-MLE imputations and fixed autumn predator concentrations and dietary weights; they do not isolate causal seasonal effects.", echo=FALSE, message=FALSE, warning=FALSE}
+
+library(dplyr)
+library(readr)
+library(flextable)
+
+season_summary <- read_csv(
+  "tables/Table_Sx_prey_season_sensitivity.csv",
+  show_col_types = FALSE
+)
+
+format_range <- function(lo, hi, digits = 0) {
+  a <- sprintf(paste0("%.", digits, "f"), lo)
+  b <- sprintf(paste0("%.", digits, "f"), hi)
+  ifelse(a == b, a, paste0(a, "–", b))
+}
+
+season_table <- season_summary |>
+  mutate(
+    family = factor(family, levels = c("PCB", "PFAS", "HBCDD")),
+    season = factor(season, levels = c("autumn", "spring")),
+    species_pools = paste0(
+      format_range(n_species_min, n_species_max),
+      " (",
+      format_range(n_pools_min, n_pools_max),
+      ")"
+    ),
+    phyla = format_range(n_phyla_min, n_phyla_max),
+    coverage = format_range(
+      100 * weight_coverage_min,
+      100 * weight_coverage_max,
+      digits = 1
+    )
+  ) |>
+  arrange(family, season) |>
+  transmute(
+    Family = as.character(family),
+    Season = tools::toTitleCase(as.character(season)),
+    Compounds = n_compounds,
+    `Class changes` = n_class_changes,
+    `Species (pools)` = species_pools,
+    Phyla = phyla,
+    `Diet covered (%)` = coverage
+  )
+
+season_table |>
+  flextable() |>
+  theme_booktabs() |>
+  set_table_properties(layout = "fixed") |>
+  width(j = "Family", width = 0.65) |>
+  width(j = "Season", width = 0.75) |>
+  width(j = "Compounds", width = 0.75) |>
+  width(j = "Class changes", width = 0.85) |>
+  width(j = "Species (pools)", width = 1.50) |>
+  width(j = "Phyla", width = 0.50) |>
+  width(j = "Diet covered (%)", width = 1.10) |>
+  fontsize(size = 8, part = "all") |>
+  padding(padding = 3, part = "all") |>
+  bold(part = "header") |>
+  align(
+    j = c("Compounds", "Class changes", "Phyla"),
+    align = "center",
+    part = "all"
+  )
+```
+
 
 ## BMF sensitivity ranges arising from prey masses
 

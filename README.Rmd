@@ -40,6 +40,7 @@ The repository contains the analyses, supplementary sensitivity assessments, and
 | `data-raw/01_CHOPIN_contamination_gamma.R` | Prepares biotic contaminant data, compound decisions, and censoring scenarios. |
 | `data-raw/02_CHOPIN_diet.R` | Reconstructs diet proportions using stomach contents and reference prey masses. |
 | `data-raw/03_CHOPIN_BMF_gamma.R` | Computes field-based BMF estimates and methodological comparisons. |
+| `data-raw/03b_CHOPIN_zero_safe_sensitivity.R` | Complements log-ratio sensitivity analyses with bounded, zero-compatible contrasts. |
 | `data-raw/04_CHOPIN_gamma_vs_lognormal.R` | Compares gamma and lognormal approaches for censored concentrations. |
 | `data-raw/05_CHOPIN_sample_inventory_supplementary.R` | Produces sampling-inventory material for the SI. |
 | `data-raw/06_CHOPIN_BMF_mass_quantiles.R` | Propagates Q25, median, and Q75 prey-mass assumptions to deterministic BMF sensitivity ranges. |
@@ -47,7 +48,8 @@ The repository contains the analyses, supplementary sensitivity assessments, and
 | `data-raw/08_CHOPIN_prey_season_sensitivity.R` | Examines the sensitivity to the seasonal composition of prey-chemistry samples. |
 | `data-raw/09_CHOPIN_HBCDD_isomer_bounds.R` | Computes censoring-bound analyses for HBCDD isomers. |
 | `data-raw/10_CHOPIN_postrun_provenance.R` | Checks the provenance and consistency of regenerated outputs. |
-| `data-raw/11_CHOPIN_checked_submission_snapshot.R` | Creates a dated submission snapshot after verification (optional). |
+| `data-raw/11_CHOPIN_reproductibility_manifest.R` | Records R/package versions, SHA-256 fingerprints of source files, and local Git provenance. |
+| `data-raw/12_CHOPIN_checked_submission_snapshot.R` | Creates an optional dated submission snapshot outside the project folder after verification. |
 | `manuscript/Article.Rmd`, `manuscript/Article_SI.Rmd` | Main article and SI source documents. |
 | `manuscript/tables/`, `manuscript/figures/` | Generated tables and figures used by the manuscripts. |
 | `results/` | Intermediate results, scenario comparisons, sensitivity analyses, and audit outputs. |
@@ -60,7 +62,8 @@ The source scripts in `data-raw/` are needed to reproduce the study; they are **
 - R **>= 4.1** and `dplyr` **>= 1.1.0**.
 - The source-data package [`chopin.data`](https://github.com/FlorenceMounier/chopin.data), containing `soles_contam`, `benthos_contam`, `soles_stomach`, `soles_G0_pools_biometrics`, `contam_info`, and `species_classif`.
 - The reference workbook `inst/extdata/Gogina_data-2021-0002-01.xlsx` supplied with the source repository.
-- R packages used by the preflight and analytical pipeline: `tidyverse`, `Btrait`, `readxl`, `janitor`, `survival`, `usethis`, `ggrepel`, `scales`, `tidytext`, and `lubridate`. Optional or output-specific dependencies include `flextable`, `officer`, `officedown`, `knitr`, `rmarkdown`, and `writexl`.
+- The analytic pipeline requires packages declared in `DESCRIPTION`, including `tidyverse`, `Btrait`, `readxl`, `janitor`, `usethis`, `ggrepel`, `scales`, `tidytext`, `lubridate`, and `digest` (for SHA-256 verification). Word outputs use `flextable`, `officer`, `officedown`, `knitr`, and `rmarkdown`.
+- The full rebuild uses the **source checkout** of `chopin.BMF`; it does not require `chopin.BMF` to be separately installed in the R library.
 
 `chopin.data` supplies **source observations**. Rebuilding from scratch means starting without **derived outputs** in `data/`, `results/`, and the generated manuscript figure/table folders; it does **not** mean rebuilding without the required source data.
 
@@ -70,18 +73,20 @@ The literature-derived individual prey-mass reference workbook (`inst/extdata/Go
 
 ```{r install, eval=FALSE}
 install.packages(c(
-  "tidyverse", "readxl", "janitor", "survival", "usethis",
+  "tidyverse", "readxl", "janitor", "usethis", "digest",
   "ggrepel", "scales", "tidytext", "lubridate",
   "flextable", "officer", "officedown", "knitr", "rmarkdown",
   "writexl", "pak"
 ))
 
-# Install Btrait from the appropriate available source, if not installed.
-# Install the source-data package (pin to an exact commit for publication):
-pak::pak("FlorenceMounier/chopin.data@4c2c81ff26ddd5dce74873613a780f2c692baf99")
+# Install Btrait from its appropriate source if not already installed.
+# Keep a single source of truth: use the commit pinned in DESCRIPTION.
+source_remote <- read.dcf("DESCRIPTION", fields = "Remotes")[1, 1]
+stopifnot(!is.na(source_remote), nzchar(source_remote))
+pak::pak(source_remote)
 ```
 
-The unpinned installation above is intended for development only. **For archival reproduction, replace it with the exact commit or release of `chopin.data` used for the published analyses.** The specific version has not yet been pinned in this README.
+The `Remotes` entry in `DESCRIPTION` pins `chopin.data` to a specific Git commit. Always update that entry to the **validated** source-data commit before rebuilding a release. The installation command above reads this field directly, avoiding a second, outdated SHA in this README. Confirm that the installed `chopin.data` version corresponds to the pinned commit.
 
 A standard installation of the research package itself may be useful for inspecting package objects:
 
@@ -121,7 +126,7 @@ SAVE_TO_PACKAGE <- TRUE
 source("data-raw/00_RUN_ALL_FROM_SCRATCH.R")
 ```
 
-This launcher executes the preflight and scripts **01–09 in order**, each in a separate R environment. It then runs `10_CHOPIN_postrun_provenance.R`. It does **not** create a submission snapshot by default.
+This launcher executes preflight, scripts **01, 02, 03, 03b and 04–09** in order, and then runs `10_CHOPIN_postrun_provenance.R` and `11_CHOPIN_reproductibility_manifest.R`. Each script is sourced in its own environment. With the final call set to `run_all(include_snapshot = FALSE)`, a routine rebuild **does not** create a submission snapshot; the optional script 12 is run explicitly only after final validation.
 
 The main intermediate results include:
 
@@ -134,12 +139,7 @@ The main intermediate results include:
 
 Scripts also create tables and figures under `manuscript/tables/` and `manuscript/figures/`.
 
-**Additional zero-compatible sensitivity analysis:** where included in a revision of the repository, `data-raw/03b_CHOPIN_zero_safe_sensitivity.R` must be run after script 03. It is **not listed in the current `00_RUN_ALL_FROM_SCRATCH.R` launcher**; add it to that launcher or run it separately before rendering SI sections that depend on its outputs.
-
-```{r zero-safe, eval=FALSE}
-# Only if this script is included in your working project:
-source("data-raw/03b_CHOPIN_zero_safe_sensitivity.R")
-```
+The zero-compatible sensitivity script `03b_CHOPIN_zero_safe_sensitivity.R` is included in the launcher immediately after script 03. Its results are regenerated automatically; it does not need to be sourced separately.
 
 ### 4. Render the manuscript and Supplementary Information
 
@@ -149,12 +149,12 @@ Open each Rmd in RStudio and use **Knit**, or render programmatically once paths
 
 ```{r render, eval=FALSE}
 rmarkdown::render(
-  "manuscript/Article.Rmd",
+  "manuscript/Article_SI.Rmd",
   knit_root_dir = normalizePath("manuscript")
 )
 
 rmarkdown::render(
-  "manuscript/Article_SI.Rmd",
+  "manuscript/Article.Rmd",
   knit_root_dir = normalizePath("manuscript")
 )
 ```
@@ -176,30 +176,28 @@ Refer to `manuscript/Article.Rmd` and `manuscript/Article_SI.Rmd` for the detail
 
 ## Validation and provenance
 
-The pipeline includes source and result checks. To assess package consistency and record the computational environment:
+The pipeline runs the post-run consistency check (script 10) and automatically records source fingerprints, installed `chopin.data` metadata, Git commit information, and `sessionInfo()` through the reproducibility manifest (script 11). To check the package itself:
 
 ```{r verify, eval=FALSE}
-# Run after the analysis from the package root
-source("data-raw/10_CHOPIN_postrun_provenance.R")
-
-# Package checks (additional development dependencies may be needed)
-# install.packages("devtools")
+# Post-run checks and the manifest are already run by the main launcher.
+# Optional independent package check (requires devtools):
 devtools::check()
 
-# Capture R / package versions
-writeLines(capture.output(sessionInfo()),
-           "results/sessionInfo_rebuild.txt")
+# Review the provenance records:
+readr::read_csv("results/provenance/chopin_data_version.csv", show_col_types = FALSE)
+readr::read_csv("results/provenance/git_provenance.csv", show_col_types = FALSE)
 ```
 
-For a publication-grade reproducibility record, document the **exact `chopin.BMF` Git commit**, the **exact `chopin.data` commit/version**, the workbook's **SHA-256 fingerprint**, and the R/package versions. At present, this README does not claim those revisions are frozen. A successful provenance check should not be confused with an independently verified clean-environment rebuild.
+For publication-grade reproducibility, verify that the `chopin.BMF` Git commit, the pinned and installed `chopin.data` commit, the workbook's SHA-256 fingerprint, and R/package versions match the final validated analysis. A commit SHA does not fully identify uncommitted local changes: inspect `git_dirty` in the manifest. A successful provenance check is not a substitute for an independently verified clean-environment rebuild.
 
 Once the analyses and manuscripts have been reviewed, the optional snapshot can be created:
 
 ```{r snapshot, eval=FALSE}
-source("data-raw/11_CHOPIN_checked_submission_snapshot.R")
+# Run once after all analyses and both Word documents have been checked:
+source("data-raw/12_CHOPIN_checked_submission_snapshot.R")
 ```
 
-Alternatively, change the final call in `data-raw/00_RUN_ALL_FROM_SCRATCH.R` to `run_all(include_snapshot = TRUE)` for a validated submission run. Snapshot creation is not enabled by default.
+The routine launcher should end with `run_all(include_snapshot = FALSE)`. Script 12 creates a dated archive under `CHOPIN_submission_snapshots/` in the **parent directory** of the project, and refuses to overwrite an existing archive of the same date. It is deliberately not run during normal analyses.
 
 ## Citation and availability
 

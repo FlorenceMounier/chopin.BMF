@@ -161,6 +161,11 @@ writeLines(
 devtools::document()
 ```
 
+# Update Git version
+
+- README l. 81 pak::pak() + knit()
+- 
+
 # Share the package
 
 ```{r, eval=FALSE}

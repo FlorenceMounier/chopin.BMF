@@ -21,6 +21,13 @@ if (any(!file.exists(required_files))) {
 
 
 
+# Validate packages required to read and verify the checksum manifest.
+for (pkg in c("readr", "dplyr", "digest")) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    stop("Missing preflight dependency: ", pkg, ". Install it before rebuilding.")
+  }
+}
+
 # Verify the exact Gogina source workbook
 
 checksum_file <- "data-raw/source_checksums.csv"
@@ -86,7 +93,7 @@ required_packages <- c(
   "flextable",
 
   # Package data creation
-  "usethis", "utils", "tools", "chopin.BMF"
+  "usethis", "digest"
 )
 
 missing_packages <- required_packages[

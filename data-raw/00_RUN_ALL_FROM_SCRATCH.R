@@ -54,4 +54,4 @@ run_all <- function(include_snapshot = FALSE) {
   invisible(TRUE)
 }
 
-run_all(include_snapshot = TRUE)  # Change to TRUE only for a frozen submission run.
+run_all(include_snapshot = FALSE)  # Routine run; create snapshot via script 12 explicitly.

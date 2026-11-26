@@ -39,6 +39,37 @@ seasonal <- prey |>
          pct_diff_vs_pooled=100*(bmf_season/bmf_pooled-1),
          threshold_change=(bmf_season>1)!=(bmf_pooled>1))
 readr::write_csv(seasonal,file.path(OUT,'BMF_seasonal_prey_exploratory.csv'))
+
+# Supplementary summary: season-restricted prey chemistry
+
+dir.create(
+  "manuscript/tables",
+  recursive = TRUE,
+  showWarnings = FALSE
+)
+
+season_summary <- seasonal |>
+  group_by(family, season) |>
+  summarise(
+    n_compounds = n_distinct(compound_name),
+    n_class_changes = sum(threshold_change, na.rm = TRUE),
+    n_species_min = min(n_species),
+    n_species_max = max(n_species),
+    n_pools_min = min(n_pools),
+    n_pools_max = max(n_pools),
+    n_phyla_min = min(n_phyla),
+    n_phyla_max = max(n_phyla),
+    weight_coverage_min = min(weight_coverage),
+    weight_coverage_max = max(weight_coverage),
+    .groups = "drop"
+  ) |>
+  arrange(family, season)
+
+readr::write_csv(
+  season_summary,
+  "manuscript/tables/Table_Sx_prey_season_sensitivity.csv"
+)
+
 print(seasonal |> group_by(family,season) |>
         summarise(n_compounds=n(),n_flips=sum(threshold_change),
                   max_abs_pct=max(abs(pct_diff_vs_pooled)),.groups='drop'))
